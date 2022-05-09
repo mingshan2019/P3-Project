@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import phone from './phone.jpg'
 import phone2 from './phone2.jpg'
-import AddTab from './AddTab';
 const lists = ["1",'2'];
 
 function Linkhub() {
@@ -34,9 +33,9 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         <button
           onClick = {handleClick}
         >add</button>
-       
+     
           <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
-          <AddTab/>
+  
          </div>      
       </header>
     </div>
