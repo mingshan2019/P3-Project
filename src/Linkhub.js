@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AddTab from './AddTab';
 import phone from './phone.jpg'
 import phone2 from './phone2.jpg'
 const lists = ["1",'2'];
@@ -35,8 +36,9 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         >add</button>
      
           <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
-  
-         </div>      
+
+         </div>   
+         {/* <AddTab/>    */}
       </header>
     </div>
   );
