@@ -1,15 +1,27 @@
-// Module calling
-const MongoClient = require("mongodb").MongoClient;
-// Server path
-const url = 'mongodb://localhost:27017/';
+const { MongoClient } = require("mongodb");
 
-// Name of the database
-const dbname = "conFusion";
+const uri =
+  "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
 
-MongoClient.connect(url, (err,client)=>{
-	if(!err) {
-		console.log("successful connection with the server");
-	}
-	else
-		console.log("Error in the connectivity");
-})
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    await client.connect();
+
+    const database = client.db('LinkHub');
+    const users = database.collection('user');
+
+	users.insertOne({ id: 1, Name: 'Steve', IsMember: false });
+	users.insertOne({ id: 2, Name: 'Kath', IsMember: true });
+
+    const query = { id: 2 };
+    const user = await users.findOne(query);
+
+    console.log(user);
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
