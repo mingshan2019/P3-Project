@@ -4,8 +4,8 @@ const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-app.get("/api", (req, res) => {
-    res.json({ express: "Hello from server!" });
+app.get("/init", (req, res) => {
+    res.json({ message: "server started!" });
   });
 
   app.get("/connect", (req, res) => {
@@ -15,3 +15,4 @@ app.get("/api", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 })
+

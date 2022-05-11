@@ -20,6 +20,7 @@ function handleClick(){
       <header className="App-header">
      
           <div style={{}}>
+          <AddTab/>     
           <div><h1>linkhub</h1></div>
 
           {/* <div style = {{marginBottom : '10px', height: '400px',width:'400px',backgroundSize: 'cover',
@@ -38,7 +39,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
 
          </div>   
-         <AddTab/>   
+       
       </header>
     </div>
   );
