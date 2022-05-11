@@ -1,27 +1,14 @@
-const { MongoClient } = require("mongodb");
+const express = require("express");
 
-const uri =
-  "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 3001;
 
-const client = new MongoClient(uri);
+const app = express();
 
-async function run() {
-  try {
-    await client.connect();
+app.get("/api", (req, res) => {
+    res.json({ express: "Hello from server!" });
+    res.send({message: 'A msg from backend'})
+  });
 
-    const database = client.db('LinkHub');
-    const users = database.collection('user');
-
-	users.insertOne({ id: 1, Name: 'Steve', IsMember: false });
-	users.insertOne({ id: 2, Name: 'Kath', IsMember: true });
-
-    const query = { id: 2 };
-    const user = await users.findOne(query);
-
-    console.log(user);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
+app.listen(PORT, () => {
+  console.log(`Server listening on ${PORT}`);
+})

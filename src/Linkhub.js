@@ -38,7 +38,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
 
          </div>   
-         {/* <AddTab/>    */}
+         <AddTab/>   
       </header>
     </div>
   );
