@@ -6,11 +6,11 @@ class AddTab extends Component {
 
   componentDidMount(){
     this.setState({getMsg: 'loading'});
-    this.callAPI().then(res => this. setState({getMsg: 'finished'})).then((res => this. setState({getMsg: res.message}))).then(console.log('done')).catch(err =>console(err));
+    this.callAPI().then((res => this. setState({getMsg: res.message}))).then(console.log('done')).catch(err =>console(err));
   };
 
   callAPI = async () =>{
-    const response = await fetch('/api');
+    const response = await fetch('/connect');
     const body = await response.json();
 
     if(response.status!== 200){
