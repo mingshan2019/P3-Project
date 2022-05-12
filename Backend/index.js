@@ -8,7 +8,7 @@ app.get("/init", (req, res) => {
     res.json({ message: "server started!" });
   });
 
-  app.get("/connect", (req, res) => {
+app.get("/get", (req, res) => {
     res.send({message: 'A msg from backend'})
   });  
 
