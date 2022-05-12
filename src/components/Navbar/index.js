@@ -41,10 +41,13 @@ const Navbar = () => {
          <FaBars />
         <NavMenu>
             <NavItem>
-                <NavLinks to ='about'>About</NavLinks>
+                <NavLinks to ='templates'>Templates</NavLinks>
             </NavItem>
             <NavItem>
-                <NavLinks to ='about'>About</NavLinks>
+                <NavLinks to ='blog'>Blog</NavLinks>
+            </NavItem>
+            <NavItem>
+                <NavLinks to ='pricing'>Pricing</NavLinks>
             </NavItem>
         </NavMenu>
         <NavBtn><NavBtnLink to='/signin'>Sign In</NavBtnLink></NavBtn>
