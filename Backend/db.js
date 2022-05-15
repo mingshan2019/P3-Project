@@ -13,9 +13,9 @@ async function run() {
     const users = database.collection('user');
 
 	users.insertOne({ id: 1, Name: 'Steve', IsMember: false });
-	users.insertOne({ id: 2, Name: 'Kath', IsMember: true });
+	users.insertOne({ id: 3, Name: 'Neo', IsMember: true });
 
-    const query = { id: 2 };
+    const query = { id: 3 };
     const user = await users.findOne(query);
 
     console.log(user);

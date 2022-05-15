@@ -17,7 +17,7 @@ class AddTab extends Component {
 
 
     this.setState({getMsg: 'loading'});
-    this.apiGet().then((res => this. setState({getMsg: res.message}))).then(console.log('done')).catch(err =>console(err));
+    this.apiGet().then((res => this.setState({getMsg: res.message}))).then(console.log('done')).catch(err =>console(err));
   };
 
   apiGet = async () =>{
