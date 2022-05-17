@@ -18,13 +18,13 @@ export default class HomePage extends Component {
           preLoad="auto" 
           loop
         > Your Browser Does Not support Video Play</video>
-        <div style={{top:'200px', left:'600px', position:'fixed'}}>
+        <div style={{top:'25%', left:'33%', position:'fixed'}}>
       <h1 style={{color:'white',fontSize:'40pt',fontFamily:'Arial'}}>LinkHub Made Easy</h1>
       </div>
-      <div style={{top:'400px', left:'500px', position:'fixed'}}>
+      <div style={{top:'45%', left:'25%', position:'fixed'}}>
       <h1 style={{color:'white',fontSize:'30pt',fontFamily:'Arial'}}>&nbsp;&nbsp;Sign up to get a connection today and <br/>share your porfile towards next opportunity </h1>
       </div>
-      <div style={{top:'670px',left:'760px', position:'fixed',height:'60px',width:'115px',background:'#01BF71',padding:'12px',borderRadius:'15px'}}>
+      <div style={{top:'72%',left:'46%', position:'fixed',height:'60px',width:'115px',background:'#01BF71',padding:'12px',borderRadius:'15px'}}>
       <Link to='/SignUp'>Get Started<MdArrowForward/></Link>
       </div>
       <div style={{background:'black',bottom:'0',height:'200px'}}>
