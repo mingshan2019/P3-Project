@@ -11,6 +11,9 @@ import {
   Route,
 } from "react-router-dom";
 import SignUp from './SignUp'
+import Template from './TemplatePage'
+import Blog from './BlogPage'
+import Help from './HelpPage'
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -20,6 +23,11 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="SignUp" element={<SignUp />} />
+      <Route path="Template" element={<Template />} />
+      <Route path="Blog" element={<Blog />} />
+      <Route path="Help" element={<Help />} />
+
+
     </Routes>
   </BrowserRouter>
 );
