@@ -327,7 +327,6 @@ const myPortfolio = function (req, res, next) {
 };
 
 
-
 module.exports.changeName = changeName;
 module.exports.removeUserCandidate = removeUserCandidate;
 module.exports.makeUserCandidate = makeUserCandidate;

@@ -13,7 +13,9 @@ import {
 import SignUp from './SignUp'
 import Template from './TemplatePage'
 import Blog from './BlogPage'
+import Price from './PricePage'
 import Help from './HelpPage'
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
@@ -25,6 +27,7 @@ root.render(
       <Route path="SignUp" element={<SignUp />} />
       <Route path="Template" element={<Template />} />
       <Route path="Blog" element={<Blog />} />
+      <Route path="Price" element={<Price />} />
       <Route path="Help" element={<Help />} />
 
 

@@ -11,6 +11,7 @@ export default class Nav extends Component {
         <Link to='/' style={{fontFamily:'Arial',color:'white'}}>LinkHub</Link>
         <Link to='/Template' style={{color: 'white',display:'inline',paddingLeft:'750px'}}>Template</Link>
         <Link to='/Blog' style={{color: 'white',display:'inline',paddingLeft:'120px'}}>Blog</Link>
+        <Link to='/Price' style={{color: 'white',display:'inline',paddingLeft:'120px'}}>Price</Link>
         <Link to='/Help' style={{color: 'white',display:'inline',paddingLeft:'120px'}}>Help</Link>
         <FaBars style={{color: 'white', float:'right'}}/>
         </div>
