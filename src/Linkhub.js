@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AddTab from './AddTab';
 import phone from './phone.jpg'
 import phone2 from './phone2.jpg'
 const lists = ["1",'2'];
@@ -13,12 +14,14 @@ function handleClick(){
   setLists([...lists, link]);
 }
 
+
   return (
     <div className="App">
   
       <header className="App-header">
      
           <div style={{}}>
+          <AddTab/>     
           <div><h1>linkhub</h1></div>
 
           {/* <div style = {{marginBottom : '10px', height: '400px',width:'400px',backgroundSize: 'cover',
@@ -35,8 +38,9 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         >add</button>
      
           <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
-  
-         </div>      
+
+         </div>   
+       
       </header>
     </div>
   );
