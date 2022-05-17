@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddTab from '../AddTab';
 import phone2 from '../phone2.jpg'
 import Nav from '../HomePage/Nav'
+import image from '../images/cool-background.png'
 const lists = ["1",'2'];
 
 function Template() {
@@ -21,7 +22,10 @@ function handleClick(){
     <div>
   
           <Nav/>
-          <div style={{}}>
+          <div style={{display:'flex',padding:'60px'}}>
+          
+         <div style={{padding:'30px 200px 100px 280px'}}>
+
           <AddTab/>     
           {/* <div style = {{marginBottom : '10px', height: '400px',width:'400px',backgroundSize: 'cover',
 backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6/09/c9/c609c9d68c49585593799c61dd96b0a3.jpg')"}}> */}
@@ -36,9 +40,28 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           onClick = {handleClick}
         >add</button>
      
-          <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>  
+          {/* <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>   */}
+         </div>
 
-         </div>   
+         <div style={{background:'black',width:'300px',height:'600px',float:'right',marginLeft:'200px',borderRadius:'12px'}}>
+         <div style={{background:'white',width:'280px',height:'580px',margin:'9px',padding:'30px',borderRadius:'12px',backgroundImage:`url(${image})` }}>
+         <div style={{paddingLeft:'80px',paddingTop:'10px',paddingBottom:'120px'}}><div style={{background:'grey',borderRadius:'60px',width:'60px',height:'60px',padding:'12px'}}>Kath</div></div>
+         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link1</div> 
+         <br/>   
+         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link2</div> 
+         <br/> 
+         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link3</div>   
+         <br/> 
+         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link4</div>   
+        </div>  
+ 
+         
+         </div>
+         
+         <div>
+
+         </div> 
+    </div>
 
     </div>
   );
