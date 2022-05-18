@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "title": "1111-patch",
+      "author": "author1",
+      "id": 1
+    },
+    {
+      "title": "test",
+      "author": "test_author",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
