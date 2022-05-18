@@ -29,6 +29,8 @@ export default class SignUp extends Component {
             <input type="submit" value="Submit" />
             </form>
             </div>
+        
+
             </div>
     )
   }

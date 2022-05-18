@@ -1,29 +1,58 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Nav from '../HomePage/Nav'
 
-export default class Login extends Component {
-  render() {
-    return (
-        <div style={{background:'grey', height:'900px'}}>
-            <Nav/>
-            <div style={{padding: '200px 700px'}}>
-            <form>
-            <label>
-            Name:
-            <input type="text" name="name" />
-            </label>
-            <br/>
-            <br/>
-            <label>
-            Password:
-            <input type="password" name="pw" />
-            </label>
-            <br/>
-            <br/>
-            <input type="submit" value="Submit" />
-            </form>
-            </div>
-            </div>
-    )
+function setToken(userToken) {
+    sessionStorage.setItem('token', JSON.stringify(userToken));
   }
+
+
+async function loginUser(credentials) {
+ return fetch('http://localhost:3001/login', {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify(credentials)
+ })
+   .then(data => data.json())
 }
+
+export default function Login({ setToken }) {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const token = await loginUser({
+      username,
+      password
+    });
+    setToken(token);
+  }
+
+  return(
+ 
+    <div className="login-wrapper">
+             <Nav/>
+      <h1>Please Log In</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          <p>Username</p>
+          <input type="text" onChange={e => setUserName(e.target.value)} />
+        </label>
+        <label>
+          <p>Password</p>
+          <input type="password" onChange={e => setPassword(e.target.value)} />
+        </label>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  )
+}
+
+Login.propTypes = {
+  setToken: PropTypes.func.isRequired
+};

@@ -1,8 +1,11 @@
 // https://flaviocopes.com/rest-api-express-mongodb/
 const express = require("express")
+const cors = require('cors');
 const mongo = require("mongodb").MongoClient
 
 const app = express()
+app.use(cors());
+
 
 app.listen(3001, () => console.log("Server ready"))
 const url = "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
@@ -90,5 +93,9 @@ app.get("/allusers", (req, res) => {
         )
         })
     
-
+        app.use('/login', (req, res) => {
+            res.send({
+              token: 'test123'
+            });
+          });
 

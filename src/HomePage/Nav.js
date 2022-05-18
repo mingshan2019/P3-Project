@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
+import useToken from '../useToken';
 
-export default class Nav extends Component {
-  render() {
+export default function Nav() {
+
+
+  const { token, setToken } = useToken();
+
     return (
         <div>
         <div style={{background: 'black', height: '20%',padding:'2% 20% 2% 8%',display:'flex'}}>
@@ -13,9 +17,11 @@ export default class Nav extends Component {
         <Link to='/Blog' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Blog</Link>
         <Link to='/Price' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Price</Link>
         <Link to='/Help' style={{color: 'white',display:'inline',paddingLeft:'10%',paddingRight:'16%'}}>Help</Link>
+        <div style={{background:'red'}}>tt{token}</div>
         <FaBars style={{color: 'white'}}/>
+       
         </div>
         </div>
     )
-  }
+  
 }
