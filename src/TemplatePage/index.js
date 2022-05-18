@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import AddTab from '../AddTab';
 import phone2 from '../phone2.jpg'
 import Nav from '../HomePage/Nav'
@@ -11,10 +11,26 @@ function Template() {
   const listItems = lists.map((item) =>
   <li key="{item}">{item}</li>
 );
+const [urlinks,seturLink]=useState([]);
 function handleClick(){
   setLists([...lists, link]);
 }
 
+useEffect(() => {
+  fetch("http://localhost:3001/testuser")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        seturLink(result.user.email);
+      },
+
+      (error) => {
+        seturLink('e');
+
+        console.log(error);
+      }
+    )
+}, [])
 
   return (
     
@@ -46,7 +62,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
          <div style={{background:'black',width:'300px',height:'600px',float:'right',marginLeft:'200px',borderRadius:'12px'}}>
          <div style={{background:'white',width:'280px',height:'580px',margin:'9px',padding:'30px',borderRadius:'12px',backgroundImage:`url(${image})` }}>
          <div style={{paddingLeft:'80px',paddingTop:'10px',paddingBottom:'120px'}}><div style={{background:'grey',borderRadius:'60px',width:'60px',height:'60px',padding:'12px'}}>Kath</div></div>
-         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link1</div> 
+         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>{urlinks}</div> 
          <br/>   
          <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>Link2</div> 
          <br/> 
