@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import SignUp from './SignUp'
+import Login from './Login'
 import Template from './TemplatePage'
 import Blog from './BlogPage'
 import Price from './PricePage'
@@ -25,6 +26,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="SignUp" element={<SignUp />} />
+      <Route path="Login" element={<Login />} />
       <Route path="Template" element={<Template />} />
       <Route path="Blog" element={<Blog />} />
       <Route path="Price" element={<Price />} />
