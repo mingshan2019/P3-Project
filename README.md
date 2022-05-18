@@ -1,4 +1,4 @@
-# P3-Project
+# News System
 
 ### Declaration ###
 
