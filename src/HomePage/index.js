@@ -21,13 +21,13 @@ export default class HomePage extends Component {
         <div style={{top:'25%', left:'33%', position:'fixed'}}>
       <h1 style={{color:'white',fontSize:'40pt',fontFamily:'Arial'}}>LinkHub Made Easy</h1>
       </div>
-      <div style={{top:'45%', left:'25%', position:'fixed'}}>
-      <h1 style={{color:'white',fontSize:'30pt',fontFamily:'Arial'}}>&nbsp;&nbsp;Sign up to get a connection today and <br/>share your porfile towards next opportunity </h1>
+      <div style={{top:'45%', left:'30%', position:'fixed'}}>
+      <h1 style={{color:'white',fontSize:'210%',fontFamily:'Arial'}}>&nbsp;&nbsp;Sign up to get a connection today and <br/>share your porfile towards next opportunity </h1>
       </div>
       <div style={{top:'72%',left:'46%', position:'fixed',height:'60px',width:'115px',background:'#01BF71',padding:'12px',borderRadius:'15px'}}>
       <Link to='/SignUp'>Get Started<MdArrowForward/></Link>
       </div>
-      <div style={{background:'black',bottom:'0',height:'200px'}}>
+      <div style={{background:'black',bottom:'0',height:'100%'}}>
       </div>
       </div>
     )
