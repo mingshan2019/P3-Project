@@ -93,9 +93,27 @@ app.get("/allusers", (req, res) => {
         )
         })
     
-        app.use('/login', (req, res) => {
-            res.send({
-              token: 'test123'
-            });
-          });
+        // app.post('/login', (req, res) => {
+        //     // users.findOne(
+        //     //     {
+        //     //       email: req.body.username,
+        //     //     },
+        //         // (err, result) => {
+        //         //   if (err) {
+        //         //     console.error(err)
+        //         //     res.status(500).json({ err: err })
+        //         //     return
+        //         //   }
+        //           const user = req.body;
+        //           console.log(req.body);
+        //           res.status(200).json({ user: user.username })
+        //         }
+        //         )
+        //         //  })
 
+                app.post('/login', function(req, res){
+   
+                    console.log(req.body);
+                   
+                    res.json( {token: req.body.username});
+                  });

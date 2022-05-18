@@ -17,7 +17,7 @@ export default function Nav() {
         <Link to='/Blog' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Blog</Link>
         <Link to='/Price' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Price</Link>
         <Link to='/Help' style={{color: 'white',display:'inline',paddingLeft:'10%',paddingRight:'16%'}}>Help</Link>
-        <div style={{color:'red',paddingRight:'10%'}}>tt{token}</div>
+        <div style={{color:'red',paddingRight:'10%'}}>username: {token}</div>
         <button style={{ background:'grey'}} onClick={() => {localStorage.clear(); sessionStorage.clear();window.location.reload(false);}}>LogOff</button>
         <FaBars style={{color: 'white'}}/>
         </div>
