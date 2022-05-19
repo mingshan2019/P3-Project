@@ -111,9 +111,41 @@ app.get("/allusers", (req, res) => {
         //         )
         //         //  })
 
-                app.post('/login', function(req, res){
+                app.post('/logintest', function(req, res){
    
                     console.log(req.body);
+                    
                    
-                    res.json( {token: req.body.username});
+                    res.json( {token: req.body.email});
                   });
+
+                  app.post('/login', function(req, res){
+                    console.log(req.body.email)
+                    console.log(req.body.password)
+
+                    users.findOne(
+                    {
+                      email: req.body.email,
+                    },
+                    (err, result) => {
+                      if (err) {
+                        console.error(err)
+                        res.status(500).json({ err: err })
+                        return
+                      }
+                      else if(req.body!=null && result && req.body.password == result.password){
+                      res.status(200).json({ token: "verified" })
+                      console.log(JSON.stringify(result).password)  
+                      console.log("verified")  
+                    }
+                      else{
+                      res.status(200).json({ token: "no" })
+                        console.log("no")  
+                        console.log(JSON.stringify(result).password)  
+
+
+                      }
+                      
+                    }
+                    )
+                    })

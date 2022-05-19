@@ -9,7 +9,7 @@ import Login from './Login'
 function App() {
   const { token, setToken } = useToken();
 
-  if(!token) {
+  if(!token || token =="no") {
     return <Login setToken={setToken} />
   }
   return (

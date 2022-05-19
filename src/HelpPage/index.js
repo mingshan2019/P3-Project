@@ -8,9 +8,9 @@ export default class Help extends Component {
     return (
       <div>
       <Nav/>
-      <div>Help</div>
       <drop/>
       <sdrop/>
+      <div>Help</div>
       </div>
     )
   }
