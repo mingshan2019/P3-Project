@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate,useHistory} from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
 import useToken from '../useToken';
 import dropdown from './dropdown';
 import drop from './dropdown';
 import sdrop from './sdrop';
+import useEmail from '../useEmail';
+import { toBeEnabled } from '@testing-library/jest-dom/dist/matchers';
 
 export default function Nav() {
 
   
   const { token, setToken } = useToken();
+  const {Em, setEm} = useEmail();
 
     return (
         <div>
@@ -22,8 +25,10 @@ export default function Nav() {
         <Link to='/Blog' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Blog</Link>
         <Link to='/Price' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Price</Link>
         <Link to='/Help' style={{color: 'white',display:'inline',paddingLeft:'10%',paddingRight:'16%'}}>Help</Link>
-        <div style={{color:'red',paddingRight:'10%'}}>email: {token}</div>
-        <button style={{ background:'grey'}} onClick={() => {localStorage.clear(); sessionStorage.clear();window.location.reload(false);}}>LogOff</button>
+        <div style={{color:'red',paddingRight:'4%'}}>{token}</div>
+        <button style={{ background:'grey'}} onClick={() => {localStorage.clear(); sessionStorage.clear();
+          window.location.reload(false);
+        }}>LogOff</button>
         <FaBars style={{color: 'white'}}/>
         </div>
         </div>

@@ -134,10 +134,15 @@ app.get("/allusers", (req, res) => {
                         return
                       }
                       else if(req.body!=null && result && req.body.password == result.password){
-                      res.status(200).json({ token: "verified" })
+                      res.status(200).json({ token: req.body.email})
                       console.log(JSON.stringify(result).password)  
-                      console.log("verified")  
+                      console.log("verified "+ req.body.email)  
                     }
+                    else if(!result)
+                      {
+                        res.status(200).json({ token: "nof" })
+                        console.log("nof")  
+                      }
                       else{
                       res.status(200).json({ token: "no" })
                         console.log("no")  
