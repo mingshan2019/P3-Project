@@ -16,7 +16,7 @@ export default class HomePage extends Component {
           src={MyVideo}
           muted
           autoPlay={"autoplay"}
-          preLoad="auto" 
+          preload="auto" 
           loop
         > Your Browser Does Not support Video Play</video>
         <div style={{top:'25%', left:'33%', position:'fixed'}}>

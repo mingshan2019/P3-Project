@@ -16,6 +16,8 @@ import Template from './TemplatePage'
 import Blog from './BlogPage'
 import Price from './PricePage'
 import Help from './HelpPage'
+import ForgetPassWord from './ForgetPassword'
+
 
 
 const root = ReactDOM.createRoot(
@@ -31,6 +33,7 @@ root.render(
       <Route path="Blog" element={<Blog />} />
       <Route path="Price" element={<Price />} />
       <Route path="Help" element={<Help />} />
+      <Route path="ForgetPassWord" element={<ForgetPassWord />} />
 
 
     </Routes>

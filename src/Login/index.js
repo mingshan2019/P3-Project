@@ -17,9 +17,7 @@ function loginUser(credentials) {
  return fetch('http://localhost:3001/login', {
    method: 'POST',
    headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-
+    'Content-Type': 'application/json'
   },
    body: JSON.stringify(credentials)
  })
@@ -39,7 +37,7 @@ export default function Login({ setToken }) {
     if(token.token =="nof") alert("user not found");
     else if(token.token =="no") alert("password not right");
     else alert("verified");
-    console.log("token is "+token.status);
+    console.log("token is "+token.token);
     setToken(token);
     setEm(token);
   }
