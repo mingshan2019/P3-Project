@@ -50,7 +50,7 @@ export default function SignUp() {
     if(!token.error) alert("Sign Up Successful");
     console.log(token.token);
     //setToken(token);
-    window.location.replace("http://localhost:3000/Login");
+    window.location.replace("http://localhost:3000");
 
     
 
