@@ -11,24 +11,31 @@ import {
   Route,
 } from "react-router-dom";
 import SignUp from './SignUp'
+import Login from './Login'
 import Template from './TemplatePage'
 import Blog from './BlogPage'
 import Price from './PricePage'
 import Help from './HelpPage'
+import ForgetPassWord from './ForgetPassword'
 
 
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
+
+
+
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="SignUp" element={<SignUp />} />
+      <Route path="Login" element={<Login/>} />
       <Route path="Template" element={<Template />} />
       <Route path="Blog" element={<Blog />} />
       <Route path="Price" element={<Price />} />
       <Route path="Help" element={<Help />} />
+      <Route path="ForgetPassWord" element={<ForgetPassWord />} />
 
 
     </Routes>

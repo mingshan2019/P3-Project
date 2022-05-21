@@ -12,12 +12,12 @@ async function run() {
     const database = client.db('LinkHub');
     const users = database.collection('user');
 
-	users.insertOne({ id: 1, Name: 'Steve', IsMember: false });
-	users.insertOne({ id: 3, Name: 'Neo', IsMember: true });
+	// users.insertOne({ id: 1, Name: 'Steve', IsMember: false });
+	// users.insertOne({ id: 3, Name: 'Neo', IsMember: true });
 
     const query = { id: 3 };
     const user = await users.findOne(query);
-
+    
     console.log(user);
   } finally {
     // Ensures that the client will close when you finish/error
