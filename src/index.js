@@ -19,16 +19,18 @@ import Help from './HelpPage'
 import ForgetPassWord from './ForgetPassword'
 
 
-
 const root = ReactDOM.createRoot(
   document.getElementById("root")
 );
+
+
+
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="SignUp" element={<SignUp />} />
-      <Route path="Login" element={<Login />} />
+      <Route path="Login" element={<Login/>} />
       <Route path="Template" element={<Template />} />
       <Route path="Blog" element={<Blog />} />
       <Route path="Price" element={<Price />} />

@@ -18,6 +18,13 @@ function SignUpUser(credentials) {
     .then(data => data.json())
  }
 
+ function setToken(userToken) {
+  sessionStorage.clear();
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+  console.log("set done");
+
+
+}
 
 export default function SignUp() {
 
@@ -28,13 +35,25 @@ export default function SignUp() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if(password!=repassword) alert("Retype is not the same with password");
+    if(email==null) alert("Please type email")
+    else if(password==null) alert("Please type password");
+    else if(repassword==null) alert("Please retype password");
+    else if(password!=repassword) alert("Retype is not the same with password");
+    else if(password.length<6) alert("Password length must be more than six");
+    else if(password.match(/^([^0-9]*)$/))alert("Password must contain number");
+    else if(!password.match(/[A-Za-z]/)) alert("Password must contain character");
     else if (validator.isEmail(email)){
     const token = await SignUpUser({
       email,
       password
     }); 
-    console.log("token::: "+token.ok);
+    if(!token.error) alert("Sign Up Successful");
+    console.log(token.token);
+    setToken(token);
+    window.location.replace("https://localhost:3000");
+
+    
+
   }else(alert("Please type a valid email"))
 
 }
@@ -43,7 +62,7 @@ export default function SignUp() {
     return (
         <div style={{background:'grey', height:'900px'}}>
             <Nav/>
-            <div style={{padding: '200px 700px'}}>
+            <div style={{padding:"10% 40%"}}>
 
             <form onSubmit={handleSubmit}>
             <label>
@@ -53,13 +72,13 @@ export default function SignUp() {
             <br/>
             <br/>
             <label>
-            Password:
+            Password: (must be longer than six, contains at least one number and one character)
             <input type="password" name="pw" onChange={e => setPassword(e.target.value)}/>
             </label>
             <br/>
             <br/>
             <label>
-            Retype Password:
+            Retype Password: 
             <input type="password" name="repw" onChange={e => setRePassword(e.target.value)}/>
             </label>
             <br/>

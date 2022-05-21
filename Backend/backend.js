@@ -72,7 +72,7 @@ app.get("/allusers", (req, res) => {
         res.status(500).json({ err: err })
         return
       }
-      res.status(200).json({ ok: true })
+      res.status(200).json({ token: req.body.email})
     }
     )
     })

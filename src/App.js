@@ -17,7 +17,7 @@ function App() {
   }
   return (
    <div>
-    <HomePage/>
+    <HomePage setToken={setToken}/>
  </div>
   );
 }

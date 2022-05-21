@@ -63,7 +63,7 @@ export default function Login({ setToken }) {
     <br/>
     <br/>
     <button type="submit">Submit</button>
-    <Link to='/SignUp' style={{paddingLeft:'40%'}}>Got to SignUp </Link>
+    <Link to='/SignUp' setToken={setToken} style={{paddingLeft:'40%'}}>Got to SignUp </Link>
     <Link to='/ForgetPassword'>ForgetPassword? </Link>
 
     </form>

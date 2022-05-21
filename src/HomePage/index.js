@@ -3,10 +3,13 @@ import MyVideo from '../videos/video.mp4'
 import Nav from './Nav'
 import {MdArrowForward,MdKeyboardArrowRight} from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import useToken from '../useToken';
+
+export default function HomePage() {
+
+  const { token, setToken } = useToken();
 
 
-export default class HomePage extends Component {
-  render() {
     return (
         <div style={{bottom:'0'}}>
       {/* <div style={{backgroundImage: 'linear-gradient(#2D3333,#0D0E0E)'}}> */}
@@ -26,11 +29,10 @@ export default class HomePage extends Component {
       <h1 style={{color:'white',fontSize:'210%',fontFamily:'Arial'}}>&nbsp;&nbsp;Sign up to get a connection today and <br/>share your porfile towards next opportunity </h1>
       </div>
       <div style={{top:'72%',left:'46%', position:'fixed',height:'60px',width:'115px',background:'#01BF71',padding:'12px',borderRadius:'15px'}}>
-      <Link to='/SignUp'>Get Started<MdArrowForward/></Link>
+      <Link to='/Login' setToken={setToken} >Get Started<MdArrowForward/></Link>
       </div>
       <div style={{background:'black',bottom:'0',height:'100%'}}>
       </div>
       </div>
     )
   }
-}
