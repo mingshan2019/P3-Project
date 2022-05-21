@@ -49,8 +49,8 @@ export default function SignUp() {
     }); 
     if(!token.error) alert("Sign Up Successful");
     console.log(token.token);
-    setToken(token);
-    window.location.replace("https://localhost:3000");
+    //setToken(token);
+    window.location.replace("http://localhost:3000/Login");
 
     
 
