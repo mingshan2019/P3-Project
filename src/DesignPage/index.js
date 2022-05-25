@@ -19,9 +19,9 @@ export default class Design extends Component {
       <div>
         <Nav/>
         <div>
-        <DesignComponent image={image1} color='#F4C095' lists={['1','2']}/>
-        <DesignComponent image={image2} color='#679289' lists={['2','3']}/>
-        <DesignComponent image={image4} color='#456990' lists={['4','3','4']}/>
+        <DesignComponent image={image1} color='#F4C095' lists={['1','2']} img={`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3.jpg")`}/>
+        <DesignComponent image={image2} color='#679289' lists={['2','3']} img={`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2.png")`}/> 
+         <DesignComponent image={image4} color='#456990' lists={['4','3','4']} img={`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4.jpg")`}/>
         </div>
       </div>
     )

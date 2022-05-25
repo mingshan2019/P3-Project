@@ -28,9 +28,23 @@ function Template() {
   </li>
 );
 const [color,setColor]=useState('red');
+const [img,setImg]=useState(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`);
+
 function handleClick(){
   setLists([...lists, link]);
 }
+
+function handleClick2(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2.png")`);
+  }
+  
+  function handleClick3(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3.jpg")`);
+  }  
+
+  function handleClick4(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4.jpg")`);
+  } 
 
 function handleChangeComplete(color){
     this.setColor(color.hex);
@@ -72,7 +86,7 @@ let params = useParams();
 backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6/09/c9/c609c9d68c49585593799c61dd96b0a3.jpg')"}}> */}
 
           {/* </div> */}
-          <div style={{marginTop:'80%'}}>
+          <div style={{marginTop:'80%',marginBottom:'40%'}}>
 
           <h2>id: {params.templateId}</h2>
         <input 
@@ -84,13 +98,17 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         </div>
      
           {/* <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>   */}
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2_tn.jpg")`}} onClick={handleClick2}></button>
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3_tn.jpg")`}}  onClick={handleClick3}></button>
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4_tn.jpg")`}} onClick={handleClick4}></button>
+
          </div>
 
-         <DesignComponent image={image} color={color} lists={lists}/>
+
+         <DesignComponent  color={color} lists={lists} img={img}/>
 
          <HexColorPicker color={color} onChange={setColor}/>
 
-        
 
         <RWebShare
         data={{
@@ -100,8 +118,13 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         }}
         onClick={() => console.log("shared successfully!")}
       >
+
+        
+
         <button>Share on Web</button>
       </RWebShare>
+
+
          
          </div>
 
