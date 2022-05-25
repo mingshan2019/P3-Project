@@ -4,7 +4,10 @@ import phone2 from '../phone2.jpg'
 import Nav from '../HomePage/Nav'
 import image from '../images/cool-background.png'
 import LinkComponent from '../LinkComponent'
+import { RWebShare } from "react-web-share";
+
 const lists = ["1",'2'];
+
 
 function Template() {
   const[link, setLink] = useState(0);
@@ -71,10 +74,20 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           {listItems}
           </ul>
         </div>  
- 
+
+        <RWebShare
+        data={{
+          text: "Web Share - GfG",
+          url: "http://localhost:3000",
+          title: "GfG",
+        }}
+        onClick={() => console.log("shared successfully!")}
+      >
+        <button>Share on Web</button>
+      </RWebShare>
          
          </div>
-         
+
          <div>
 
          </div> 
