@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { useParams } from "react-router-dom";
 import AddTab from '../AddTab'
 import phone2 from '../phone2.jpg'
 import Nav from '../HomePage/Nav'
@@ -18,7 +19,7 @@ const lists = ["1",'2'];
 
 
 
-function Template() {
+export default function Share() {
   const[link, setLink] = useState(0);
   const[lists, setLists] = useState(["a","b"]);
   const listItems = lists.map((item) =>
@@ -66,6 +67,7 @@ useEffect(() => {
     )
 }, [])
 
+let params = useParams();
 
 
 
@@ -86,6 +88,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           {/* </div> */}
           <div style={{marginTop:'80%',marginBottom:'40%'}}>
 
+          <h2>id: {params.templateId}</h2>
         <input 
               onChange = {event => setLink(event.target.value)}
         />
@@ -93,8 +96,8 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           onClick = {handleClick}
         >add link</button>
         </div>
+     
         <h2>click to image to change</h2>
-
           {/* <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>   */}
           <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2_tn.jpg")`}} onClick={handleClick2}></button>
           <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3_tn.jpg")`}}  onClick={handleClick3}></button>
@@ -135,4 +138,3 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
   );
 }
 
-export default Template;

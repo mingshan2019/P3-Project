@@ -16,6 +16,8 @@ import Template from './TemplatePage'
 import Blog from './BlogPage'
 import Price from './PricePage'
 import Help from './HelpPage'
+import Design from './DesignPage'
+import Share from './SharePage'
 import ForgetPassWord from './ForgetPassword'
 
 
@@ -32,9 +34,11 @@ root.render(
       <Route path="SignUp" element={<SignUp />} />
       <Route path="Login" element={<Login/>} />
       <Route path="Template" element={<Template />} />
+      <Route path=":templateId" element={<Share />} />
       <Route path="Blog" element={<Blog />} />
       <Route path="Price" element={<Price />} />
       <Route path="Help" element={<Help />} />
+      <Route path="Design" element={<Design />} />
       <Route path="ForgetPassWord" element={<ForgetPassWord />} />
 
 

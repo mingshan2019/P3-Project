@@ -6,7 +6,7 @@ const lists = ["1",'2'];
 
 function Linkhub() {
   const[link, setLink] = useState(0);
-  const[lists, setLists] = useState(["a","b"]);
+  const[lists, setLists] = useState(["link1","link2"]);
   const listItems = lists.map((item) =>
   <li key="{item}">{item}</li>
 );
@@ -23,7 +23,6 @@ function handleClick(){
           <div style={{}}>
           <AddTab/>     
           <div><h1>linkhub</h1></div>
-
           {/* <div style = {{marginBottom : '10px', height: '400px',width:'400px',backgroundSize: 'cover',
 backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6/09/c9/c609c9d68c49585593799c61dd96b0a3.jpg')"}}> */}
           <ul>
