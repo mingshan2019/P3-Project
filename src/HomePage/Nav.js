@@ -22,9 +22,7 @@ export default function Nav() {
         <div style={{background: '#141414', height: '20%',display:'flex'}}>
         
                 
-        {/* <h1 style={{fontFamily:'Arial',color:'white'}}>LinkHub</h1> */}<div style={{background:`url(${logo})`,width:'165px',height:'50px',margin:'15px'}}>
-        {/* <Link to='/' style={{fontFamily:'Arial',color:'white',background:{logo},width:'20%',height:'20%'}}></Link> */}
-        </div>
+         <Link to='/' style={{fontFamily:'Arial',color:'white',background:`url(${logo})`,width:'165px',height:'50px',margin:'15px'}}></Link> 
         
         <div style={{padding:'2% 20% 2% 8%',width:'70%'}}> 
 
