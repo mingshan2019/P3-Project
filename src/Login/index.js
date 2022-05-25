@@ -14,7 +14,7 @@ function setEm(userEm) {
 }
 
 function loginUser(credentials) {
- return fetch('http://localhost:3001/login', {
+ return fetch('/login', {
    method: 'POST',
    headers: {
     'Content-Type': 'application/json'
