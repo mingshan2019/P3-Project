@@ -4,6 +4,7 @@ import Nav from '../HomePage/Nav'
 import { Link } from 'react-router-dom';
 
 
+
 function setToken(userToken) {
     sessionStorage.setItem('token', JSON.stringify(userToken));
   }
@@ -14,7 +15,7 @@ function setEm(userEm) {
 }
 
 function loginUser(credentials) {
- return fetch('http://localhost:3001/login', {
+ return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:3001/login', {
    method: 'POST',
    headers: {
     'Content-Type': 'application/json'

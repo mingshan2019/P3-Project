@@ -17,7 +17,7 @@ function handleClick(){
 }
 
 useEffect(() => {
-  fetch("http://localhost:3001/testuser")
+  fetch("http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:3001/testuser")
     .then(res => res.json())
     .then(
       (result) => {
