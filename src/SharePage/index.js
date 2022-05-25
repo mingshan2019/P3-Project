@@ -8,6 +8,10 @@ import LinkComponent from '../LinkComponent'
 import { RWebShare } from "react-web-share";
 import DesignComponent from '../DesignPage/DesignComponent'
 import { BlockPicker } from 'react-color';
+import { HexColorPicker } from 'react-colorful';
+
+
+
 
 
 const lists = ["1",'2'];
@@ -84,8 +88,9 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
 
          <DesignComponent image={image} color={color} lists={lists}/>
 
-         <BlockPicker color={color}         onChangeComplete={ handleChangeComplete }
-/>
+         <HexColorPicker color={color} onChange={setColor}/>
+
+        
 
         <RWebShare
         data={{

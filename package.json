@@ -4,6 +4,7 @@
   "homepage": "http://jrlinkhub.s3-website-ap-southeast-2.amazonaws.com",
   "private": true,
   "dependencies": {
+    "@s-ui/react-image-picker": "^1.7.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -12,6 +13,7 @@
     "mongodb": "^4.5.0",
     "react": "^18.1.0",
     "react-color": "^2.19.3",
+    "react-colorful": "^5.5.1",
     "react-dom": "^18.1.0",
     "react-dropdown": "^1.10.0",
     "react-icon": "^1.0.0",
