@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react'
+import { useParams } from "react-router-dom";
 import AddTab from '../AddTab'
 import phone2 from '../phone2.jpg'
 import Nav from '../HomePage/Nav'
@@ -6,8 +7,12 @@ import image from '../images/cool-background.png'
 import LinkComponent from '../LinkComponent'
 import { RWebShare } from "react-web-share";
 import DesignComponent from '../DesignPage/DesignComponent'
+import { BlockPicker } from 'react-color';
+
 
 const lists = ["1",'2'];
+
+
 
 
 function Template() {
@@ -18,26 +23,34 @@ function Template() {
     <LinkComponent link={item}/>  
   </li>
 );
-const [urlinks,seturLink]=useState([]);
+const [color,setColor]=useState('red');
 function handleClick(){
   setLists([...lists, link]);
 }
 
+function handleChangeComplete(color){
+    this.setColor(color.hex);
+  };
+
 useEffect(() => {
-  fetch("http://localhost:3001/testuser")
+  fetch("http://localhost:3001/testid")
     .then(res => res.json())
     .then(
       (result) => {
-        seturLink(result.user.email);
+        console.log('color is'+ result.portfolio.color);
+        setColor(result.portfolio.color);
       },
 
       (error) => {
-        seturLink('e');
+        setColor('grey');
 
         console.log(error);
       }
     )
 }, [])
+
+let params = useParams();
+
 
 
   return (
@@ -57,6 +70,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           {/* </div> */}
           <div style={{marginTop:'80%'}}>
 
+          <h2>id: {params.templateId}</h2>
         <input 
               onChange = {event => setLink(event.target.value)}
         />
@@ -68,8 +82,10 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           {/* <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>   */}
          </div>
 
-         <DesignComponent image={image} color='#F4C095' lists={lists}/>
+         <DesignComponent image={image} color={color} lists={lists}/>
 
+         <BlockPicker color={color}         onChangeComplete={ handleChangeComplete }
+/>
 
         <RWebShare
         data={{

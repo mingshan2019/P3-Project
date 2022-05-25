@@ -9,7 +9,7 @@ export default class LinkComponent extends Component {
   render() {
     return (
       <div style={{paddingTop:'20px'}}>
-      <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>{this.props.link} </div>
+      <div style={{background:this.props.color,width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>{this.props.link} </div>
       </div>
     )
   }

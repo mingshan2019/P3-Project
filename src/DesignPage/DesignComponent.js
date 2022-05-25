@@ -8,10 +8,11 @@ export default function DesignComponent(props) {
   
   const[lists, setLists] = useState(["a","b"]);
 
+  const color = props.color
 
   const listItems = props.lists.map((item) =>
   <li key="{item}">
-    <LinkComponent link={item}/>  
+    <LinkComponent link={item} color={color}/>  
   </li>
 );
     
