@@ -5,6 +5,7 @@ import Nav from '../HomePage/Nav'
 import image from '../images/cool-background.png'
 import LinkComponent from '../LinkComponent'
 import { RWebShare } from "react-web-share";
+import DesignComponent from '../DesignPage/DesignComponent'
 
 const lists = ["1",'2'];
 
@@ -66,14 +67,8 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
           {/* <div id="img" style={{marginTop: '20px'}}><img src={phone2}/></div>   */}
          </div>
 
-         <div style={{background:'black',width:'300px',height:'600px',float:'right',marginLeft:'200px',borderRadius:'12px'}}>
-         <div style={{background:'white',width:'280px',height:'580px',margin:'9px',padding:'30px',borderRadius:'12px',backgroundImage:`url(${image})` }}>
-         <div style={{paddingLeft:'80px',paddingTop:'10px',paddingBottom:'120px'}}><div style={{background:'grey',borderRadius:'60px',width:'60px',height:'60px',padding:'12px'}}>Kath</div></div>
-         <div style={{background:'grey',width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>{urlinks}</div> 
-         <ul>
-          {listItems}
-          </ul>
-        </div>  
+         <DesignComponent image={image} color='#F4C095' lists={lists}/>
+
 
         <RWebShare
         data={{
@@ -93,7 +88,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
          </div> 
     </div>
 
-    </div>
+  
   );
 }
 
