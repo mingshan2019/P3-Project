@@ -5,9 +5,10 @@ import NavTab from './NavTab'
 
 export default function Nav() {
   return (
-        <div style={{background: Color_dark, display:'flex'}}>
+        <div style={{padding:'2%',width:'100%',background: Color_dark,display:'flex'}}>
+            <NavTab tab='Portfolio'/>
             <NavTab tab='Blog'/>
-            
+            <NavTab tab='QA'/>
         </div>
   )
 }
