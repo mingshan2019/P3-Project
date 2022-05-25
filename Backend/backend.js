@@ -2,6 +2,8 @@
 const express = require("express")
 const cors = require('cors');
 const mongo = require("mongodb").MongoClient
+const ObjectId = require('mongodb').ObjectId; 
+
 
 const app = express()
 app.use(cors());
@@ -10,7 +12,7 @@ app.use(cors());
 app.listen(3001, () => console.log("Server ready"))
 const url = "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
 
-let db, users
+let db, users,portfolio
 
 mongo.connect(
   url,
@@ -25,6 +27,7 @@ mongo.connect(
     }
     db = client.db("LinkHub")
     users = db.collection("users");
+    portfolio=db.collection("portfolio");
   }
 )
 
@@ -56,6 +59,22 @@ app.get("/allusers", (req, res) => {
         return
       }
       res.status(200).json({ user: result })
+    }
+    )
+    })
+
+    
+  app.get("/testid", (req, res) => {
+
+    portfolio. findOne(
+      { _id: ObjectId("628dc28b8bbdd932f180805c") },
+    (err, result) => {
+      if (err) {
+        console.error(err)
+        res.status(500).json({ err: err })
+        return
+      }
+      res.status(200).json({ portfolio: result })
     }
     )
     })
@@ -120,6 +139,42 @@ app.get("/allusers", (req, res) => {
                   });
 
                   app.post('/login', function(req, res){
+                    console.log(req.body.email)
+                    console.log(req.body.password)
+
+                    users.findOne(
+                    {
+                      email: req.body.email,
+                    },
+                    (err, result) => {
+                      if (err) {
+                        console.error(err)
+                        res.status(500).json({ err: err })
+                        return
+                      }
+                      else if(req.body!=null && result && req.body.password == result.password){
+                      res.status(200).json({ token: req.body.email})
+                      console.log(JSON.stringify(result).password)  
+                      console.log("verified "+ req.body.email)  
+                    }
+                    else if(!result)
+                      {
+                        res.status(200).json({ token: "nof" })
+                        console.log("nof")  
+                      }
+                      else{
+                      res.status(200).json({ token: "no" })
+                        console.log("no")  
+                        console.log(JSON.stringify(result).password)  
+
+
+                      }
+                      
+                    }
+                    )
+                    })
+
+                                      app.post('/login', function(req, res){
                     console.log(req.body.email)
                     console.log(req.body.password)
 
