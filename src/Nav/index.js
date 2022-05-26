@@ -13,12 +13,12 @@ export default function Nav() {
 
   return (
         <div style={{display:'flex',paddingBottom:'10%'}}>
-          <div style={{padding:'2%',background: Color_dark,width:'80%',display:'flex'}}>
+          <div style={{paddingBottom:'2%',paddingTop:'1%',background: Color_dark,width:'80%',display:'flex'}}>
             <NavTab tab='Portfolio'/>
             <NavTab tab='Blog'/>
             <NavTab tab='QA'/>
           </div>
-          <div style={{width:'20%'}}><Avatar email={Email.charAt(0)}/></div>
+          <div><Avatar email={Email.charAt(0)}/></div>
         </div>
   )
 }
