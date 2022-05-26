@@ -18,7 +18,7 @@ export default function Nav() {
             <NavTab tab='Blog'/>
             <NavTab tab='QA'/>
           </div>
-          <div><Avatar email={Email.charAt(0)}/></div>
+          <div ><Avatar email={Email.charAt(0)}/></div>
         </div>
   )
 }
