@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json())
 
 
-app.listen(3001, () => console.log("Server ready"))
+app.listen(5000, () => console.log("Server ready"))
 const url = "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
 
 let db, users, portfolio
