@@ -64,18 +64,15 @@ app.post('/login', function (req, res) {
             }
             else if (req.body != null && result && req.body.password == result.password) {
                 res.status(200).json({ token: req.body.email })
-                console.log(JSON.stringify(result).password)
-                console.log("verified " + req.body.email)
+                console.log("verified " + req.body.email + "password "+ JSON.stringify(result).password)
             }
             else if (!result) {
-                res.status(200).json({ token: "nof" })
-                console.log("nof")
+                res.status(200).json({ token: "not found" })
+                console.log("not found")
             }
             else {
-                res.status(200).json({ token: "no" })
-                console.log("no")
-                console.log(JSON.stringify(result).password)
-                
+                res.status(200).json({ token: "incorrect" })            //Can this realy happen?
+                console.log("failed")   
             }
 
         }

@@ -1,6 +1,21 @@
 import React, { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
+
 import { Color_bg } from '../Utils'
 import validator from 'validator'
+
+
+function SignUpUser(req) {
+  return fetch('/SignUp',{
+    method: 'POST',
+    headers: {
+     'Content-Type': 'application/json',
+     'Accept': 'application/json'
+   },
+    body: JSON.stringify(req)
+  })
+    .then(data => data.json())
+ }
 
 
 export default function SignUpModal() {
@@ -8,19 +23,9 @@ export default function SignUpModal() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [repassword, setRePassword] = useState();
+    
+    const navigate = useNavigate();
 
-
-    function SignUpUser(req) {
-        return fetch('/SignUp',{
-          method: 'POST',
-          headers: {
-           'Content-Type': 'application/json',
-           'Accept': 'application/json'
-         },
-          body: JSON.stringify(req)
-        })
-          .then(data => data.json())
-       }
 
     const handleSubmit = async e => {
         e.preventDefault(); 
@@ -41,6 +46,7 @@ export default function SignUpModal() {
         }); 
         if(!res.error) alert("Sign Up Successful");
         sessionStorage.setItem("email", email);
+        navigate('/', { replace: true })
       }
     }
 
@@ -80,4 +86,5 @@ export default function SignUpModal() {
         </form>
     </div>
   )
+
 }
