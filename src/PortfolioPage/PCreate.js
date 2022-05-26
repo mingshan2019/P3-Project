@@ -2,7 +2,8 @@ import React,{useState} from 'react'
 import { Color_bg } from '../Utils'
 import {HiOutlineDocumentAdd} from 'react-icons/hi'
 import {Modal} from 'antd'
-import 'antd/dist/antd.css';
+import '~antd/dist/antd.less';
+
 
 
 export default function PCreate() {
