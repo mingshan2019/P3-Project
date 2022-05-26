@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import { Color_bg } from '../Utils'
-import {HiOutlineDocumentAdd} from 'react-icons/hi'
-import {Modal} from 'antd'
+import FileAddOutlined from '@ant-design/icons'
+import {Modal,Input} from 'antd'
 
 
 
@@ -25,15 +25,13 @@ export default function PCreate() {
   return (
     <div>
         <div>
-        <button onClick={handleClick}><HiOutlineDocumentAdd size='80%'/></button>
+        <button onClick={handleClick}><FileAddOutlined size='80'/></button>
         <buton type="primary" onClick={handleClick}>
         Open Modal
         </buton>
         </div>
         <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <Input placeholder="Enter your Project Name" />
         </Modal>
     </div>
   )

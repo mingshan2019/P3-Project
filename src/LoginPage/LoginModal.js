@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
-import { Color_bg } from '../Utils'
+import {Form,Input,Button,Checkbox} from 'antd'
+import {LockOutlined,UserOutlined} from '@ant-design/icons'
 
 function loginUser(req) {
   return fetch('/login', {
@@ -36,7 +37,7 @@ export default function LoginModal() {
   }
 
   return (
-    <div style={{width:'20%',height:'100%',background:Color_bg,padding:'10%'}}>
+    <div style={{width:'40%'}}>
         
     <form onSubmit={handleSubmit}>
         <label >
@@ -51,9 +52,87 @@ export default function LoginModal() {
         </label>
         <br/>
         <br/>
-        <input type="submit" value="Submit" />  
+        <input type="submit" value="Submit" /> 
 
     </form>
+
+    <Form
+          onFinish={handleSubmit}
+          >
+    <Form.Item
+        label="Username"
+        name="username"
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[{ required: true, message: 'Please input your password!' }]}
+      >
+      <Input.Password />
+      </Form.Item>
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+
+    </Form>
+    <Form
+      name="normal_login"
+      className="login-form"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={handleSubmit}
+    >
+      <Form.Item
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <a className="login-form-forgot" href="">
+          Forgot password
+        </a>
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="">register now!</a>
+      </Form.Item>
+    </Form>
+
 </div>
   )
 }

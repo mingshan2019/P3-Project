@@ -1,9 +1,7 @@
 import React,{useState} from 'react'
-import { Color_dark } from '../Utils'
-import NavTab from './NavTab'
-import Avatar from './Avatar'
-
-
+import { Link} from 'react-router-dom';
+import {Menu} from 'antd'
+import { ProfileOutlined, UserOutlined,LogoutOutlined } from '@ant-design/icons';
 
 export default function Nav() {
 
@@ -12,13 +10,28 @@ export default function Nav() {
   console.log("Session email is "+ sessionStorage.getItem("email"));
 
   return (
-        <div style={{display:'flex',paddingBottom:'10%'}}>
-          <div style={{paddingBottom:'2%',paddingTop:'1%',background: Color_dark,width:'80%',display:'flex'}}>
-            <NavTab tab='Portfolio'/>
-            <NavTab tab='Blog'/>
-            <NavTab tab='QA'/>
-          </div>
-          <div ><Avatar email={Email.charAt(0)}/></div>
+        <div>
+          <Menu mode='horizontal' >
+          <Menu.Item>
+          <Link to='/Portfolio'>Portfolio</Link>
+          </Menu.Item>
+          <Menu.Item>
+          <Link to='/Blog'>Blog</Link>
+          </Menu.Item>
+          <Menu.Item>
+          <Link to='/QA'>QA</Link>
+          </Menu.Item>
+          <Menu.SubMenu title={Email.charAt(0)} icon={<UserOutlined />}>
+        
+          <Menu.Item icon={<ProfileOutlined />}>
+            Profile
+          </Menu.Item>
+          <Menu.Item icon={<LogoutOutlined/>}>
+            Log off
+          </Menu.Item>
+          </Menu.SubMenu>
+          </Menu>
+
         </div>
   )
 }

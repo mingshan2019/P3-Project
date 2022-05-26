@@ -10,6 +10,7 @@ import Blog from './BlogPage'
 import QA from './QAPage'
 import SignUp from './SignUpPage';
 import Login from './LoginPage'
+import NotFound from './NotFoundPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,6 +25,7 @@ root.render(
       <Route path="/QA" element={<QA/>} />
       <Route path="/SignUp" element={<SignUp/>} />
       <Route path="/Login" element={<Login/>} />
+      <Route path="/*" element={<NotFound/>} />
 
   </Routes>
   </BrowserRouter>
