@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { Color_bg } from '../Utils'
-import FileAddOutlined from '@ant-design/icons'
-import {Modal,Input} from 'antd'
+import {FileAddFilled} from '@ant-design/icons'
+import {HiOutlineDocumentAdd} from 'react-icons/hi'
+import {Modal,Input,Button} from 'antd'
 
 
 
@@ -23,14 +24,13 @@ export default function PCreate() {
   };
 
   return (
-    <div>
-        <div>
-        <button onClick={handleClick}><FileAddOutlined size='80'/></button>
-        <buton type="primary" onClick={handleClick}>
-        Open Modal
-        </buton>
-        </div>
-        <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+    <div style={{padding:'4%'}}>
+
+        {/* <Button onClick={handleClick}  size='large' icon={<FileAddFilled/>} /> */}
+
+        <button onClick={handleClick}><HiOutlineDocumentAdd size='80%'/></button>
+
+        <Modal title="Create Portfolio" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <Input placeholder="Enter your Project Name" />
         </Modal>
     </div>

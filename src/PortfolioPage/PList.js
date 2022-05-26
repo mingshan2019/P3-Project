@@ -3,7 +3,7 @@ import PListItem from './PListItem'
 
 export default function PList() {
   return (  
-    <div style={{width:'60%'}}>
+    <div style={{width:'60%',paddingTop:'4%',paddingLeft:'10%'}}>
         <PListItem/>
         <PListItem/>
         <PListItem/>

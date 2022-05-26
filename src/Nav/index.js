@@ -10,28 +10,27 @@ export default function Nav() {
   console.log("Session email is "+ sessionStorage.getItem("email"));
 
   return (
-        <div>
-          <Menu mode='horizontal' >
-          <Menu.Item>
+          <Menu mode='horizontal' style={{padding:'1.2%'}}>
+          <Menu.Item style={{marginLeft:'40%'}}>
           <Link to='/Portfolio'>Portfolio</Link>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item style={{marginLeft:'8%'}}>
           <Link to='/Blog'>Blog</Link>
           </Menu.Item>
-          <Menu.Item>
-          <Link to='/QA'>QA</Link>
-          </Menu.Item>
-          <Menu.SubMenu title={Email.charAt(0)} icon={<UserOutlined />}>
-        
+          <Menu.Item style={{marginLeft:'8%'}}>
+          <Link to='/QA' >Q&A</Link>
+          </Menu.Item >
+
+
+          {/* <Menu.SubMenu title={Email.charAt(0)} icon={<UserOutlined />} style={{marginLeft:'20%'}}>
           <Menu.Item icon={<ProfileOutlined />}>
             Profile
           </Menu.Item>
           <Menu.Item icon={<LogoutOutlined/>}>
             Log off
           </Menu.Item>
-          </Menu.SubMenu>
+          </Menu.SubMenu> */}
           </Menu>
 
-        </div>
   )
 }
