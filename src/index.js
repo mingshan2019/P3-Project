@@ -7,6 +7,8 @@ import Welcome from './WelcomePage';
 import Portfolio from './PortfolioPage';
 import Blog from './BlogPage'
 import QA from './QAPage'
+import SignUp from './SignUpPage';
+import Login from './LoginPage'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,7 +20,8 @@ root.render(
       <Route path="/Portfolio" element={<Portfolio/>} />
       <Route path="/Blog" element={<Blog/>} />
       <Route path="/QA" element={<QA/>} />
-
+      <Route path="/SignUp" element={<SignUp/>} />
+      <Route path="/Login" element={<Login/>} />
 
   </Routes>
   </BrowserRouter>
