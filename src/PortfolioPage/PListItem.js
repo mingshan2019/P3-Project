@@ -1,13 +1,12 @@
 import React from 'react'
 import { Color_bg,Color_bright } from '../Utils'
+import {Card} from 'antd'
 
 export default function PListItem() {
   return (
-    <div style={{background:Color_bright,padding:'2%'}}>
-    <div style={{background:Color_bg, padding:'1%',marginBotton:'8%',width:'40%'}}>
+    <Card style={{marginBottom:'5%'}}>
         <div>Alias: </div>
         <div>Created: </div>
-    </div>
-    </div>
+    </Card>
   )
 }
