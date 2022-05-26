@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.2.1",
     "antd": "^4.20.6",
     "cors": "^2.8.5",
-    "craco-antd": "^2.0.0",
     "craco-less": "^2.0.0",
     "mongodb": "^4.6.0",
     "react": "^18.1.0",
