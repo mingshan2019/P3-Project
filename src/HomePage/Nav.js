@@ -7,6 +7,7 @@ import drop from './dropdown';
 import sdrop from './sdrop';
 import useEmail from '../useEmail';
 import { toBeEnabled } from '@testing-library/jest-dom/dist/matchers';
+import logo from '../images/Logo.png'
 
 export default function Nav() {
 
@@ -18,12 +19,18 @@ export default function Nav() {
 
     return (
         <div>
-        <div style={{background: 'black', height: '20%',display:'flex'}}>
+        <div style={{background: '#141414', height: '20%',display:'flex'}}>
+        
+                
+         <Link to='/' style={{fontFamily:'Arial',color:'white',background:`url(${logo})`,width:'165px',height:'50px',margin:'15px'}}></Link> 
+        
         <div style={{padding:'2% 20% 2% 8%',width:'70%'}}> 
-        {/* <h1 style={{fontFamily:'Arial',color:'white'}}>LinkHub</h1> */}
-        <Link to='/' style={{fontFamily:'Arial',color:'white'}}>LinkHub</Link>
+
+
+
         <drop/>
         <sdrop/>
+
         <Link to='/Template' style={{color: 'white',display:'inline',paddingLeft:'30%'}}>Template</Link>
         <Link to='/Blog' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Blog</Link>
         <Link to='/Price' style={{color: 'white',display:'inline',paddingLeft:'10%'}}>Price</Link>
