@@ -28,7 +28,6 @@ export default function SignUpModal() {
 
 
     const handleSubmit = async e => {
-        e.preventDefault(); 
 
         if(email==null) alert("Please type email")
         else if(password==null) alert("Please type password")

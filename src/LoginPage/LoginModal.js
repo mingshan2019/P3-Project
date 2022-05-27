@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate,Link} from 'react-router-dom'
 import {Form,Input,Button,Checkbox} from 'antd'
 import {LockOutlined,UserOutlined} from '@ant-design/icons'
 
@@ -23,17 +23,19 @@ export default function LoginModal() {
 
 
   const handleSubmit = async e => {
-    e.preventDefault();
     const res = await loginUser({
       email,
       password
     }); 
     if(res.token =="not found") alert("User not found");
     else if(res.token =="incorrect") alert("password not right");
-    else alert("verified");
-    console.log("token is "+res.token);
-    sessionStorage.setItem("email",res.token);
-    navigate('/', { replace: true })
+    else 
+    {
+      alert("verified");
+      console.log("token is "+res.token);
+      sessionStorage.setItem("email",res.token);
+      navigate('/', { replace: true })
+    }
   }
 
   return (
@@ -66,18 +68,20 @@ export default function LoginModal() {
       onFinish={handleSubmit}
     >
       <Form.Item
-        name="username"
+        name="Email"
+        onValuesChange={setEmail}
         rules={[
           {
             required: true,
-            message: 'Please input your Username!',
+            message: 'Please input your Email!',
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
       </Form.Item>
       <Form.Item
         name="password"
+        onValuesChange={setPassword}
         rules={[
           {
             required: true,
@@ -105,7 +109,7 @@ export default function LoginModal() {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="">register now!</a>
+        Or <Link to='/SignUp'>register now!</Link>
       </Form.Item>
     </Form>
 
