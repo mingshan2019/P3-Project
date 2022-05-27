@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Color_bg } from '../Utils'
+import {useNavigate} from "react-router-dom"
 import {FileAddFilled} from '@ant-design/icons'
 import {HiOutlineDocumentAdd} from 'react-icons/hi'
 import {Modal,Input,Button} from 'antd'
@@ -7,6 +7,9 @@ import {Modal,Input,Button} from 'antd'
 
 
 export default function PCreate() {
+
+  const navigate = useNavigate();
+
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -17,6 +20,7 @@ export default function PCreate() {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    navigate('/Design');
   };
 
   const handleCancel = () => {

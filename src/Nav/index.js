@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { Link} from 'react-router-dom';
 import {Menu} from 'antd'
 import { ProfileOutlined, UserOutlined,LogoutOutlined } from '@ant-design/icons';
+import Ava from './Ava'
 
 export default function Nav() {
 
@@ -29,6 +30,10 @@ export default function Nav() {
             Log off
           </Menu.Item>
           </Menu.SubMenu> */}
+          <Menu.Item style={{marginLeft:'10%'}}>
+            <Ava/>
+          </Menu.Item>
+
 
           </Menu>
 

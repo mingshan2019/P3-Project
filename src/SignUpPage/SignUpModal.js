@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom'
 
-import { Color_bg } from '../Utils'
 import validator from 'validator'
+import {Form,Input,Button} from 'antd'
 
 
 function SignUpUser(req) {
@@ -51,7 +51,7 @@ export default function SignUpModal() {
     }
 
   return (
-    <div style={{width:'20%',height:'100%',background:Color_bg,padding:'10%'}}>
+    <div>
         
         <form onSubmit={handleSubmit}>
             <label>
@@ -84,6 +84,40 @@ export default function SignUpModal() {
             <input type="submit" value="Submit" />  
 
         </form>
+        <Form
+          onFinish={handleSubmit}
+          >
+    <Form.Item
+        label="Email"
+        name = "Email"
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        name="Password"
+        label="Password"
+        rules={[{ required: true, message: 'Please type your password!' }]}
+      >
+      <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        name = "Retype Password"
+        label="Retype Password"
+        rules={[{ required: true, message: 'Please retype your password!' }]}
+      >
+      <Input.Password />
+      </Form.Item>
+
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+
+    </Form>
     </div>
   )
 
