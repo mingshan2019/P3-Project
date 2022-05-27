@@ -51,7 +51,7 @@ function handleChangeComplete(color){
   };
 
 useEffect(() => {
-  fetch("http://localhost:3001/testid")
+  fetch("http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:3001/testid")
     .then(res => res.json())
     .then(
       (result) => {
@@ -114,7 +114,7 @@ backgroundRepeat: 'no-repeat',backgroundImage:"url('https://i.pinimg.com/474x/c6
         <RWebShare
         data={{
           text: "Web Share - GfG",
-          url: "http://localhost:3000",
+          url: "http://connecttree.link",
           title: "GfG",
         }}
         onClick={() => console.log("shared successfully!")}

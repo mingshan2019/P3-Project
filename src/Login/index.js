@@ -4,6 +4,7 @@ import Nav from '../HomePage/Nav'
 import { Link } from 'react-router-dom';
 
 
+
 function setToken(userToken) {
     sessionStorage.setItem('token', JSON.stringify(userToken));
   }
@@ -14,6 +15,7 @@ function setEm(userEm) {
 }
 
 function loginUser(credentials) {
+
  return fetch('/login', {
    method: 'POST',
    headers: {
