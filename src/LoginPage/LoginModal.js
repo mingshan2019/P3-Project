@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate,Link} from 'react-router-dom'
-import {Form,Input,Button,Checkbox} from 'antd'
+import {Form,Input,Button,Checkbox,Card} from 'antd'
 import {LockOutlined,UserOutlined} from '@ant-design/icons'
 
 function loginUser(req) {
@@ -21,25 +21,37 @@ export default function LoginModal() {
 
   const navigate = useNavigate();
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onFinish = (values) =>{
+    console.log(values)
+    handleSubmit();
+  }
 
   const handleSubmit = async e => {
     console.log("email: "+email+"PW: "+password)
     const res = await loginUser({
       email,
       password
-    }); 
-    // if(res.token =="not found") alert("User not found");
-    // else if(res.token =="incorrect") alert("password not right");
-    // else 
+    });  
+    if(res.token =="not found") alert("User not found");
+    else if(res.token =="incorrect") alert("password not right");
+    else{ 
       alert("verified");
       console.log("token is "+res.token);
       sessionStorage.setItem("email",res.token);
       navigate('/', { replace: true })
-    
+    }
   }
 
   return (
-    <div style={{width:'40%'}}>
+    <Card style={{width:'40%',marginLeft:'30%',marginTop:'10%',padding:'3%'}}>
         
     <Form
       name="normal_login"
@@ -47,11 +59,11 @@ export default function LoginModal() {
       initialValues={{
         remember: true,
       }}
-      onFinish={handleSubmit}
+      onFinish={onFinish}
     >
       <Form.Item
         name="Email"
-        onValuesChange={setEmail}
+        onChange={handleEmailChange}
         rules={[
           {
             required: true,
@@ -59,11 +71,11 @@ export default function LoginModal() {
           },
         ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
+      <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
       </Form.Item>
       <Form.Item
-        name="password"
-        onValuesChange={setPassword}
+        name="Password"
+        onChange={handlePasswordChange}
         rules={[
           {
             required: true,
@@ -81,20 +93,20 @@ export default function LoginModal() {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
-
         <a className="login-form-forgot" href="">
-          Forgot password
+        &nbsp;&nbsp;Forgot password
         </a>
       </Form.Item>
-
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
-          Log in
+          Log in 
         </Button>
-        Or <Link to='/SignUp'>register now!</Link>
+        &nbsp;&nbsp;
+        Or  
+        <Link to='/SignUp'> register now!</Link>
       </Form.Item>
     </Form>
 
-</div>
+,</Card>
   )
 }

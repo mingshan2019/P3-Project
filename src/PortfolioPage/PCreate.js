@@ -11,20 +11,27 @@ export default function PCreate() {
   const navigate = useNavigate();
 
 
+  const [portfolioName,setPortfolioName] = useState('default portfolio');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
 
   const handleClick = () => {
     setIsModalVisible(true);
+    console.log("Session: "+ sessionStorage.getItem('email'.charAt(0)));
   };
 
   const handleOk = () => {
     setIsModalVisible(false);
-    navigate('/Design');
+    console.log('portfolioName '+ portfolioName);
+    navigate('/Design',{state:{portfolioName:portfolioName}});
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+  const handleChange = (e) => {
+    console.log('onChange');
+    setPortfolioName(e.target.value);
   };
 
   return (
@@ -36,8 +43,8 @@ export default function PCreate() {
         <br/>
         <button onClick={handleClick}><HiOutlineDocumentAdd size='80%'/></button>
 
-        <Modal title="Create Portfolio" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <Input placeholder="Enter your Portfolio Name" />
+        <Modal title="Create Portfolio" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}  >
+        <Input placeholder="Enter your Portfolio Name" onChange={handleChange}/>
         </Modal>
     </div>
   )
