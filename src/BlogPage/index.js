@@ -6,7 +6,7 @@ export default function Blog() {
   return (
     <div>
     <Nav/>
-    <div>
+    <div style={{padding:'5%'}}>
         <BlogContent/>
     </div>
     </div> 

@@ -31,11 +31,13 @@ export default function PCreate() {
     <div style={{padding:'4%'}}>
 
         {/* <Button onClick={handleClick}  size='large' icon={<FileAddFilled/>} /> */}
-
+        <h3>Create portfolio</h3>
+        <br/>
+        <br/>
         <button onClick={handleClick}><HiOutlineDocumentAdd size='80%'/></button>
 
         <Modal title="Create Portfolio" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <Input placeholder="Enter your Project Name" />
+        <Input placeholder="Enter your Portfolio Name" />
         </Modal>
     </div>
   )

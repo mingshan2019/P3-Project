@@ -25,8 +25,8 @@ export default function Ava() {
      </Menu.Item>
  )
  else return(
-     <Menu.Item style={{marginLeft:'10%'}} disabled= 'true'>
-     <Button onClick={NavLogin}>Login</Button>
+      <Menu.Item  disabled= 'true' style={{marginLeft:'8%'}}>
+      <Button onClick={NavLogin}>Login</Button>
      </Menu.Item>
  )
 }

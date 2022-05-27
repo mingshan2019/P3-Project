@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link} from 'react-router-dom';
-import {Menu} from 'antd'
+import {Menu,Button} from 'antd'
 import { ProfileOutlined, UserOutlined,LogoutOutlined } from '@ant-design/icons';
 import Ava from './Ava'
 
@@ -21,18 +21,7 @@ export default function Nav() {
           <Menu.Item style={{marginLeft:'8%'}}>
           <Link to='/QA' >Q&A</Link>
           </Menu.Item >
-
-          {/* <Menu.SubMenu title={Email.charAt(0)} icon={<UserOutlined />} style={{marginLeft:'20%'}}>
-          <Menu.Item icon={<ProfileOutlined />}>
-            Profile
-          </Menu.Item>
-          <Menu.Item icon={<LogoutOutlined/>}>
-            Log off
-          </Menu.Item>
-          </Menu.SubMenu> */}
           <Ava/>
-
-
           </Menu>
 
   )
