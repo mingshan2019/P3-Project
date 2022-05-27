@@ -1,5 +1,5 @@
 import React from 'react'
-import {Avatar,Button} from 'antd'
+import {Avatar,Button, Menu} from 'antd'
 import {useNavigate} from "react-router-dom"
 
 
@@ -12,11 +12,21 @@ export default function Ava() {
     console.log('login')
   };
 
+  const OpenProfile = () => {
+    console.log('open profile');
+  };
+
   if(sessionStorage.getItem("email"))
     return (
-    <Avatar>e</Avatar>
+      <Menu.Item style={{marginLeft:'10%'}} disabled= 'true'>
+      <Avatar onClick={OpenProfile}>{sessionStorage.getItem("email").charAt(0)} backgroundColor:'white'</Avatar> 
+      <Button style={{marginLeft:'40%'}} onClick={() => {localStorage.clear(); sessionStorage.clear();
+          window.location.reload(false);}}>Log Off</Button>
+     </Menu.Item>
  )
  else return(
+     <Menu.Item style={{marginLeft:'10%'}} disabled= 'true'>
      <Button onClick={NavLogin}>Login</Button>
+     </Menu.Item>
  )
 }

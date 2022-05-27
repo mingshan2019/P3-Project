@@ -30,9 +30,7 @@ export default function Nav() {
             Log off
           </Menu.Item>
           </Menu.SubMenu> */}
-          <Menu.Item style={{marginLeft:'10%'}} disabled= 'true'>
-            <Ava/>
-          </Menu.Item>
+          <Ava/>
 
 
           </Menu>

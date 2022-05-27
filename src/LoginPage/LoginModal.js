@@ -23,42 +23,24 @@ export default function LoginModal() {
 
 
   const handleSubmit = async e => {
+    console.log("email: "+email+"PW: "+password)
     const res = await loginUser({
       email,
       password
     }); 
-    if(res.token =="not found") alert("User not found");
-    else if(res.token =="incorrect") alert("password not right");
-    else 
-    {
+    // if(res.token =="not found") alert("User not found");
+    // else if(res.token =="incorrect") alert("password not right");
+    // else 
       alert("verified");
       console.log("token is "+res.token);
       sessionStorage.setItem("email",res.token);
       navigate('/', { replace: true })
-    }
+    
   }
 
   return (
     <div style={{width:'40%'}}>
         
-    <form onSubmit={handleSubmit}>
-        <label >
-            Email
-            <input  type="text" onChange={e => setEmail(e.target.value)}></input>
-        </label>
-        <br/>
-        <br/>
-        <label>
-            Password
-            <input type="password" onChange={e => setPassword(e.target.value)}></input>
-        </label>
-        <br/>
-        <br/>
-        <input type="submit" value="Submit" /> 
-
-    </form>
-
- 
     <Form
       name="normal_login"
       className="login-form"
