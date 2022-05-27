@@ -6,6 +6,7 @@ import App from './App'
 import Test from './TestPage'
 import Welcome from './WelcomePage';
 import Portfolio from './PortfolioPage';
+import Design from './DesignPage';
 import Blog from './BlogPage'
 import QA from './QAPage'
 import SignUp from './SignUpPage';
@@ -21,6 +22,7 @@ root.render(
       <Route path="/Test" element={<Test/>} />
       <Route path="/Welcome" element={<Welcome/>} />
       <Route path="/Portfolio" element={<Portfolio/>} />
+      <Route path="/Design" element={<Design/>} />
       <Route path="/Blog" element={<Blog/>} />
       <Route path="/QA" element={<QA/>} />
       <Route path="/SignUp" element={<SignUp/>} />
