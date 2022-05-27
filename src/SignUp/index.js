@@ -6,7 +6,7 @@ import validator from 'validator'
 
 
 function SignUpUser(credentials) {
-  return fetch('http://localhost:3001/adduser', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:3001/adduser', {
     method: 'POST',
     headers: {
      'Content-Type': 'application/json',

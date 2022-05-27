@@ -6,6 +6,7 @@ import useToken from './useToken';
 import useEmail from './useEmail';
 import Login from './Login'
 
+export const ProxyUrl= 'http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:3001/testid';
 
 function App() {
   const { token, setToken } = useToken();
