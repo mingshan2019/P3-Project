@@ -5,12 +5,12 @@ const data = Array.from({
   length: 23,
 }).map((_, i) => ({
   href: 'https://ant.design',
-  title: `ant design part ${i}`,
+  title: `Linkhub Blog Part ${i}`,
   avatar: 'https://joeschmoe.io/api/v1/random',
   description:
-    'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    'Linkhub build up connection between your social medias.',
   content:
-    'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+    'We are aming at social influence and public relations by providing a creative design platorm. Once you build a personal profile here, you will have more opportunities to get attention.',
 }));
 
 const IconText = ({ icon, text }) => (
