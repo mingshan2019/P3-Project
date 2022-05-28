@@ -26,6 +26,7 @@
     "test": "craco test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000",
   "eslintConfig": {
     "extends": [
       "react-app",

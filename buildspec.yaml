@@ -1,0 +1,15 @@
+@ -1,15 +0,0 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - yarn
+  build:
+    commands:
+      - yarn run build
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: build  
