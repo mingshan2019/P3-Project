@@ -4,7 +4,7 @@ import {Form,Input,Button,Checkbox,Card} from 'antd'
 import {LockOutlined,UserOutlined} from '@ant-design/icons'
 
 function loginUser(req) {
-  return fetch('/login', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/login', {
     method: 'POST',
     headers: {
      'Content-Type': 'application/json'
