@@ -64,7 +64,7 @@ export default function Design(props) {
           <br />
         </div>
         <PhoneFrame color={color} lists={lists} img={img} />
-        <div style={{ paddingTop: '2%', paddingLeft: '10%' }}>
+        <div style={{ paddingTop: '2%', paddingLeft: '10%', paddingRight:'5%'}}>
           <Mentions
             autosize
             style={{
