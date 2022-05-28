@@ -1,4 +1,3 @@
-@ -1,15 +0,0 @@
 version: 0.2
 
 phases:
@@ -10,6 +9,6 @@ phases:
       - yarn run build
 artifacts:
   files:
-    - '**/*'
+    - "**/*"
   discard-paths: no
-  base-directory: build  
+  base-directory: build
