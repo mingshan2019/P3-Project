@@ -1,52 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import Linkhub from './Linkhub';
-import reportWebVitals from './reportWebVitals';
-//import '../fonts/NunitoSans-Black.ttf'
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import SignUp from './SignUp'
-import Login from './Login'
-import Template from './TemplatePage'
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+
+import App from './App'
+import Test from './TestPage'
+import Welcome from './WelcomePage';
+import Portfolio from './PortfolioPage';
+import Design from './DesignPage';
 import Blog from './BlogPage'
-import Price from './PricePage'
-import Help from './HelpPage'
-import Design from './DesignPage'
-import Share from './SharePage'
-import ForgetPassWord from './ForgetPassword'
+import QA from './QAPage'
+import SignUp from './SignUpPage';
+import Login from './LoginPage'
+import NotFound from './NotFoundPage';
 
-
-const root = ReactDOM.createRoot(
-  document.getElementById("root")
-);
-
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="SignUp" element={<SignUp />} />
-      <Route path="Login" element={<Login/>} />
-      <Route path="Template" element={<Template />} />
-      <Route path=":templateId" element={<Share />} />
-      <Route path="Blog" element={<Blog />} />
-      <Route path="Price" element={<Price />} />
-      <Route path="Help" element={<Help />} />
-      <Route path="Design" element={<Design />} />
-      <Route path="ForgetPassWord" element={<ForgetPassWord />} />
+  <Routes>
+      <Route path="/" element={<App/>} />
+      <Route path="/Test" element={<Test/>} />
+      <Route path="/Welcome" element={<Welcome/>} />
+      <Route path="/Portfolio" element={<Portfolio/>} />
+      <Route path="/Design" element={<Design/>} />
+      <Route path="/Blog" element={<Blog/>} />
+      <Route path="/QA" element={<QA/>} />
+      <Route path="/SignUp" element={<SignUp/>} />
+      <Route path="/Login" element={<Login/>} />
+      <Route path="/*" element={<NotFound/>} />
 
-
-    </Routes>
+  </Routes>
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

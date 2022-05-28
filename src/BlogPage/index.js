@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import Nav from '../HomePage/Nav'
+import React from 'react'
+import Nav from '../Nav'
+import BlogContent from './BlogContent'
 
-export default class Blog extends Component {
-  render() {
-    return (
-      <div>
-      <Nav/>
-      <div>Bloggggg</div>
-      </div>
-    )
-  }
+export default function Blog() {
+  return (
+    <div>
+    <Nav/>
+    <div style={{padding:'5%'}}>
+        <BlogContent/>
+    </div>
+    </div> 
+  )
 }
