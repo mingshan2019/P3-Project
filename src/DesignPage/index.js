@@ -74,7 +74,7 @@ export default function Design(props) {
             >add link</Button>
           </div>
           <br />
-          <h3>click to image to change</h3>
+          <h3>click the image to change</h3>
           <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2_tn.jpg")`}} onClick={handleClick2}></button>
           <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3_tn.jpg")`}}  onClick={handleClick3}></button>
           <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4_tn.jpg")`}} onClick={handleClick4}></button>

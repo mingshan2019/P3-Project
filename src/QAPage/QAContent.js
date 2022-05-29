@@ -1,4 +1,4 @@
-import { Avatar, Button, Comment, Form, Input, List,Collapse } from 'antd';
+import { Avatar, Button, Comment, Form, Input, List, Collapse } from 'antd';
 import moment from 'moment';
 import { useState } from 'react';
 const { TextArea } = Input;
@@ -32,10 +32,11 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
 
 const QAContent = () => {
 
-    
+  const [name, setName] = useState('Guest');
   const [comments, setComments] = useState([]);
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState('');
+
 
   const handleSubmit = () => {
     if (!value) return;
@@ -46,7 +47,7 @@ const QAContent = () => {
       setComments([
         ...comments,
         {
-          author: 'Han Solo',
+          author: <p>{name}</p>,
           avatar: 'https://joeschmoe.io/api/v1/random',
           content: <p>{value}</p>,
           datetime: moment().fromNow(),
@@ -57,28 +58,31 @@ const QAContent = () => {
 
   const handleChange = (e) => {
     setValue(e.target.value);
+
+    if (sessionStorage.getItem("email"))
+      setName(sessionStorage.getItem("email"));
   };
 
   return (
     <>
-    <Collapse accordion>
-    <Panel header="Help Subject 1" key="1">
-      <p>{text}</p>
-    </Panel>
-    <Panel header="Help Subject 2" key="2">
-      <p>{text}</p>
-    </Panel>
-    <Panel header="Help Subject 3" key="3">
-      <p>{text}</p>
-    </Panel>
-    <Panel header="Help Subject 4" key="4">
-      <p>{text}</p>
-    </Panel>
-    </Collapse>
+      <Collapse accordion>
+        <Panel header="Help Subject 1" key="1">
+          <p>{text}</p>
+        </Panel>
+        <Panel header="Help Subject 2" key="2">
+          <p>{text}</p>
+        </Panel>
+        <Panel header="Help Subject 3" key="3">
+          <p>{text}</p>
+        </Panel>
+        <Panel header="Help Subject 4" key="4">
+          <p>{text}</p>
+        </Panel>
+      </Collapse>
 
-    <br/>
-    <br/>
-    <br/>
+      <br />
+      <br />
+      <br />
 
 
       {comments.length > 0 && <CommentList comments={comments} />}
