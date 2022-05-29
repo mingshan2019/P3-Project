@@ -6,7 +6,7 @@ import { Form, Input, Button,Card } from 'antd'
 
 
 function SignUpUser(req) {
-  return fetch('/SignUp', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/SignUp', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
