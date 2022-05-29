@@ -42,6 +42,18 @@ export default function Design(props) {
     console.log("props " + location.state.portfolioName)
   }
 
+  function handleClick2(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2.png")`);
+  }
+  
+  function handleClick3(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3.jpg")`);
+  }  
+
+  function handleClick4(){
+    setImg(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4.jpg")`);
+  } 
+
   return (
     <Layout>
       <Nav />
@@ -62,6 +74,10 @@ export default function Design(props) {
             >add link</Button>
           </div>
           <br />
+          <h3>click to image to change</h3>
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2_tn.jpg")`}} onClick={handleClick2}></button>
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/3_tn.jpg")`}}  onClick={handleClick3}></button>
+          <button style={{width:'30%',height:'18%',backgroundImage:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/4_tn.jpg")`}} onClick={handleClick4}></button>
         </div>
         <PhoneFrame color={color} lists={lists} img={img} />
         <div style={{ paddingTop: '2%', paddingLeft: '10%', paddingRight:'5%'}}>
@@ -87,9 +103,9 @@ export default function Design(props) {
           <div style={{marginTop:'70%'}}>
           <RWebShare  
             data={{
-              text: "Web Share - GfG",
-              url: "http://connecttree.link",
-              title: "GfG",
+              text: "Share your Linkhub page to the public",
+              url: "http://connecttree.link/Portfolio",
+              title: "Share to",
             }}
             onClick={() => console.log("shared successfully!")}
           >
