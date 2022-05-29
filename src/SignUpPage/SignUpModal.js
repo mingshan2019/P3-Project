@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 import validator from 'validator'
 import { Form, Input, Button,Card } from 'antd'
@@ -95,11 +95,17 @@ export default function SignUpModal() {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
+          &nbsp;&nbsp;&nbsp;
+        Or  
+        &nbsp;
+        <Link to='/Login'>  Already have an account</Link>
         </Form.Item>
+      
+
       </Form>
       </Card>
   )

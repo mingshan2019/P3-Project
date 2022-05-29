@@ -8,7 +8,6 @@ export default function SignUp() {
   return (
     <div>
         <SignUpModal/>
-        <Link to='/Login'>Got to Login </Link>
     </div>
   )}
 
