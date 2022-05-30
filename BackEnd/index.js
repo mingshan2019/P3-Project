@@ -111,3 +111,38 @@ app.get("/GetComment", (req, res) => {
     })
   })
 
+  var dateTime = require('node-datetime');
+
+  app.post("/AddPortfolio", (req, res) => {
+    
+    portfolio.insertOne(
+        {
+            email:req.body.Email,
+            portfolio: req.body.portfolioName,
+            datetime: dateTime.create().format('Y-m-d')
+        },
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            res.status(200).json({ status:'ok' })
+        }
+    )
+})
+
+app.post("/GetPortfolio", (req, res) => {
+    portfolio.find(
+        {
+            email:req.body.Email
+        }
+    ).toArray((err, items) => {
+      if (err) {
+        console.error(err)
+        res.status(500).json({ err: err })
+        return
+      }
+      res.status(200).json({ portfolio: items })
+    })
+  })
