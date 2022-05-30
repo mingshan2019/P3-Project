@@ -70,6 +70,7 @@ export default function Design(props) {
 
   const handleChange = (e) => {
     setName(e.target.value);
+    console.log("name is " + name);
   };
 
   const handlePublish = async e => {

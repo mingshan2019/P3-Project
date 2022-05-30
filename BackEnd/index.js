@@ -149,7 +149,7 @@ app.post("/GetPortfolio", (req, res) => {
 
   app.post("/PublishPortfolio", (req, res) => {
 
-    console.log("publish "+req.body.id);
+    console.log("publish "+req.body.id + "name " + req.body.name);
 
     var idd = new ObjectId(req.body.id);
 
