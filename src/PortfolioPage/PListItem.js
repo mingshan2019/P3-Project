@@ -4,7 +4,7 @@ import {Card} from 'antd'
 
 export default function PListItem(props) {
   return (
-    <Card>
+    <Card style={{marginBottom:'5%'}}>
         <div>Alias: {props.alias}</div>
         <div>Created: {props.date}</div>
     </Card>

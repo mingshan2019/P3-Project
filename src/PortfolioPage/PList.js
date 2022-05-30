@@ -32,11 +32,14 @@ import PListItem from './PListItem'
 
 
   return (  
-    portfolio.map((item) =>
+  <div style={{width:'40%',paddingTop:'4%',paddingLeft:'10%'}}>
+   { portfolio.map((item) =>
         <PListItem alias={item.portfolio} date={item.datetime}/>
     )
-  )   
+   }
+     </div>
 
+  )   
 }
 
 export default PList;
