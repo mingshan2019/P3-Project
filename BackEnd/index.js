@@ -11,7 +11,7 @@ app.use(express.json())
 app.listen(5000, () => console.log("Server ready"))
 const url = "mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority";
 
-let db, users, portfolio
+let db, users, portfolio,comment
 
 mongo.connect(
     url,
@@ -27,6 +27,7 @@ mongo.connect(
         db = client.db("LinkHub")
         users = db.collection("users");
         portfolio = db.collection("portfolio");
+        comment = db.collection("comment");
     }
 )
 
@@ -75,6 +76,24 @@ app.post('/login', function (req, res) {
                 console.log("failed")   
             }
 
+        }
+    )
+})
+
+app.post("/AddComment", (req, res) => {
+
+    comment.insertOne(
+        {
+            name: req.body.name,
+            comment: req.body.value
+        },
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            res.status(200).json({ status:'ok' })
         }
     )
 })

@@ -7,6 +7,17 @@ const text = `
   This is a section for instructions to support users to get familar with Linkhub
 `;
 
+function AddComment(req) {
+  return fetch('/AddComment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(req)
+  })
+    .then(data => data.json())
+}
 
 const CommentList = ({ comments }) => (
   <List
@@ -37,11 +48,14 @@ const QAContent = () => {
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState('');
 
-
-  const handleSubmit = () => {
+  const handleSubmit = async e => {
     if (!value) return;
     setSubmitting(true);
-    setTimeout(() => {
+    const res = await AddComment({
+      name,
+      value
+    });console.log("res"+res)
+     setTimeout(() => {
       setSubmitting(false);
       setValue('');
       setComments([
@@ -53,7 +67,8 @@ const QAContent = () => {
           datetime: moment().fromNow(),
         },
       ]);
-    }, 1000);
+     }, 1000);
+
   };
 
   const handleChange = (e) => {
@@ -87,7 +102,7 @@ const QAContent = () => {
 
       {comments.length > 0 && <CommentList comments={comments} />}
       <Comment
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
+        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Avatar" />}
         content={
           <Editor
             onChange={handleChange}
