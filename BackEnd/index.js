@@ -146,3 +146,62 @@ app.post("/GetPortfolio", (req, res) => {
       res.status(200).json({ portfolio: items })
     })
   })
+
+  app.post("/PublishPortfolio", (req, res) => {
+    
+    portfolio.updateOne(
+        {
+            email:req.body.Email,
+            portfolio: req.body.name,
+        },
+        {$set:{
+            color:req.body.color,
+            img:req.body.img,
+            lists:req.body.lists
+        }
+        },{upsert: true},
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+        }
+    )
+    portfolio.findOne(
+        {
+            email:req.body.Email,
+            portfolio: req.body.name,
+        },
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            res.status(200).json({ id: result._id })
+        }
+    )
+})
+
+app.post('/GetShare', function (req, res) {
+
+    var idd = new ObjectId(req.body.id);
+
+    portfolio.findOne(
+        {
+            _id: idd,
+        },
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            
+                // res.status(200).json({ color: result.color, img:result.img,lists:result.lists })
+
+                res.status(200).json(result);
+        }
+    )
+})
