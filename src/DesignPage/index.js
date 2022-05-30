@@ -85,8 +85,12 @@ export default function Design(props) {
   }
 
   useEffect(() => {
+
     setName(location.state.portfolioName);
-  })
+    setColor(location.state.color);
+    setImg(location.state.img);
+}, []);
+
 
   return (
     <Layout>

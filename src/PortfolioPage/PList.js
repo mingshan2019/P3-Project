@@ -34,7 +34,8 @@ import PListItem from './PListItem'
   return (  
   <div style={{width:'40%',paddingTop:'4%',paddingLeft:'10%'}}>
    { portfolio.map((item) =>
-        <PListItem alias={item.portfolio} date={item.datetime}/>
+        
+        <PListItem alias={item.portfolio} date={item.datetime} id={item._id} color={item.color} img={item.img}/>
     )
    }
      </div>

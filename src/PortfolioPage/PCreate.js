@@ -41,7 +41,7 @@ export default function PCreate() {
       portfolioName,
       now
     });console.log("res"+res)
-    navigate('/Design',{state:{portfolioName:portfolioName}});
+    navigate('/Design',{state:{portfolioName:portfolioName, color:'grey',img:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`}});
   };
 
   const handleCancel = () => {
