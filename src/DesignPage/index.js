@@ -46,7 +46,7 @@ export default function Design(props) {
   );
   const [color, setColor] = useState('grey');
   const [img, setImg] = useState(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`);
-
+  const [id,setId] = useState('');
   const [name, setName] = useState('');
   const [Email, setEmail] = useState(sessionStorage.getItem("email"));
 
@@ -75,7 +75,7 @@ export default function Design(props) {
   const handlePublish = async e => {
     const res = await PublishPage(
       {
-      Email,
+      id,
       name, 
       color,
       img,
@@ -85,10 +85,10 @@ export default function Design(props) {
   }
 
   useEffect(() => {
-
     setName(location.state.portfolioName);
     setColor(location.state.color);
     setImg(location.state.img);
+    setId(location.state.id);
 }, []);
 
 

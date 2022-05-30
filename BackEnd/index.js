@@ -127,7 +127,7 @@ app.get("/GetComment", (req, res) => {
                 res.status(500).json({ err: err })
                 return
             }
-            res.status(200).json({ status:'ok' })
+            res.status(200).json({ id:result._id })
         }
     )
 })
@@ -148,13 +148,18 @@ app.post("/GetPortfolio", (req, res) => {
   })
 
   app.post("/PublishPortfolio", (req, res) => {
+
+    console.log("publish "+req.body.id);
+
+    var idd = new ObjectId(req.body.id);
+
     
     portfolio.updateOne(
         {
-            email:req.body.Email,
-            portfolio: req.body.name,
+            _id:idd,
         },
         {$set:{
+            portfolio:req.body.name,
             color:req.body.color,
             img:req.body.img,
             lists:req.body.lists
@@ -166,20 +171,8 @@ app.post("/GetPortfolio", (req, res) => {
                 res.status(500).json({ err: err })
                 return
             }
-        }
-    )
-    portfolio.findOne(
-        {
-            email:req.body.Email,
-            portfolio: req.body.name,
-        },
-        (err, result) => {
-            if (err) {
-                console.error("err: "+err)
-                res.status(500).json({ err: err })
-                return
-            }
-            res.status(200).json({ id: result._id })
+            res.status(200).json({ id: req.body._id })
+
         }
     )
 })
