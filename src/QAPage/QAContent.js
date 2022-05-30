@@ -1,6 +1,6 @@
 import { Avatar, Button, Comment, Form, Input, List, Collapse } from 'antd';
 import moment from 'moment';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 const { TextArea } = Input;
 const { Panel } = Collapse;
 const text = `
@@ -8,13 +8,35 @@ const text = `
 `;
 
 function AddComment(req) {
-  return fetch('/AddComment', {
+  return fetch('http://localhost:5000/AddComment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
     body: JSON.stringify(req)
+  })
+    .then(data => data.json())
+}
+
+const GetC = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/GetComment');
+    const json = await response.json();
+    console.log(json);
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+function GetComment(){
+  return fetch('http://localhost:5000/GetComment', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify()
   })
     .then(data => data.json())
 }
@@ -48,12 +70,51 @@ const QAContent = () => {
   const [submitting, setSubmitting] = useState(false);
   const [value, setValue] = useState('');
 
+  // useEffect(async e => {    
+  //   const res = await GetComment();console.log("res"+res);
+  //   const c=res.comments.map(function(item){
+  //     return{
+  //     author: <p>{item.author}</p>,
+  //     avatar: item.avatar,
+  //     content: <p>{item.content}</p>,
+  //     datetime: item.datetime,
+  // }})
+  //   setComments(c)
+
+  // });
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch( 'http://localhost:5000/GetComment');
+        const res = await response.json();
+        console.log(res);
+        const c = res.comment.map(function(item){
+              return{
+              author: <p>{item.author}</p>,
+              avatar: item.avatar,
+              content: <p>{item.content}</p>,
+              datetime: item.datetime,
+          }})
+            setComments(c)
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+
+}, []);
+
   const handleSubmit = async e => {
     if (!value) return;
     setSubmitting(true);
+    const now = moment().fromNow()
     const res = await AddComment({
       name,
-      value
+      value,
+      now
+
     });console.log("res"+res)
      setTimeout(() => {
       setSubmitting(false);

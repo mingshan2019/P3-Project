@@ -81,11 +81,13 @@ app.post('/login', function (req, res) {
 })
 
 app.post("/AddComment", (req, res) => {
-
+    
     comment.insertOne(
         {
-            name: req.body.name,
-            comment: req.body.value
+            author: req.body.name,
+            avatar: 'https://joeschmoe.io/api/v1/random',
+            content: req.body.value,
+            datetime: req.body.now
         },
         (err, result) => {
             if (err) {
@@ -97,3 +99,15 @@ app.post("/AddComment", (req, res) => {
         }
     )
 })
+
+app.get("/GetComment", (req, res) => {
+    comment.find().toArray((err, items) => {
+      if (err) {
+        console.error(err)
+        res.status(500).json({ err: err })
+        return
+      }
+      res.status(200).json({ comment: items })
+    })
+  })
+
