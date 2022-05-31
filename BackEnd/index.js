@@ -142,12 +142,12 @@ app.get("/GetComment", (req, res) => {
     const idd = new(ObjectId)
     Mportfolio.create(
         {
-            _id:idd,
+            _id: idd,
             email:req.body.Email,
+            portfolio: req.body.portfolioName,
             color:'grey',
             img:'https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png',
             lists:["a","b"],
-            portfolio: req.body.portfolioName,
             datetime: dateTime.create().format('Y-m-d')
         },
         (err, result) => {

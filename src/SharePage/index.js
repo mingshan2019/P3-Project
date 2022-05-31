@@ -6,6 +6,9 @@ import { Layout, Button, Input, Space, Mentions } from 'antd'
 
 
 export default function Share(props) {
+
+  const { Content, Footer } = Layout
+
     
     const { id } = useParams();
     const [color, setColor] = useState('grey');
@@ -44,6 +47,8 @@ export default function Share(props) {
     const url = window.location.href
     
   return (
+    <Layout>
+    <Content>
     <div style={{float:'left', padding:'5%'}}>
             <PhoneFrame color={color} img={img} lists={lists}/>
             <RWebShare
@@ -51,12 +56,15 @@ export default function Share(props) {
                 text: "Share your Linkhub page to the public",
                 url: url,
                 title: "Share to",
+                sites:['facebook']
               }}
               onClick={() => console.log("shared successfully!")}
             >
               <Button  style={{ marginTop: '5%' }}>Share on Web</Button>
             </RWebShare>
     </div>
+    </Content>
+    </Layout>
 
   )
 }

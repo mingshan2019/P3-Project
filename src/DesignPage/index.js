@@ -5,7 +5,7 @@ import PhoneItem from '../PhoneFrame/PhoneItem'
 import PhoneFrame from '../PhoneFrame'
 import Designer from './Designer'
 import { SketchPicker } from 'react-color'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate,Link } from 'react-router-dom'
 import { RWebShare } from 'react-web-share'
 
 
@@ -51,6 +51,8 @@ export default function Design(props) {
   const [Email, setEmail] = useState(sessionStorage.getItem("email"));
 
   const location = useLocation();
+  const navigate = useNavigate();
+
 
   function handleClick() {
     setLists([...lists, link]);
@@ -86,11 +88,19 @@ export default function Design(props) {
     if (res.token == "not found") alert("User not found");
   }
 
+  const handlePreview = async e => {
+    const url = 'http://localhost:3000/share/'+ id
+    console.log("url is "+url)
+    window.location.replace(url)
+    }
+
   useEffect(() => {
     setName(location.state.portfolioName);
     setColor(location.state.color);
     setImg(location.state.img);
     setId(location.state.id);
+    setLists(location.state.lists); 
+    console.log("list === "+lists[1]);
 }, []);
 
 
@@ -140,19 +150,9 @@ export default function Design(props) {
               </Option>
             ))}
           </Mentions>
-          <Button style={{ marginTop: '60%' }} onClick={handlePublish}>Publish Page</Button>
-          <div style={{ marginTop: '70%' }}>
-            <RWebShare
-              data={{
-                text: "Share your Linkhub page to the public",
-                url: "http://connecttree.link/Portfolio",
-                title: "Share to",
-              }}
-              onClick={() => console.log("shared successfully!")}
-            >
-              <Button>Share on Web</Button>
-            </RWebShare>
-          </div>
+          <Button style={{ marginTop: '60%' }} onClick={handlePublish}>Save Page</Button>
+          <Button style={{ marginLeft: '40%' }} onClick={handlePreview}>Preview Page</Button>
+          {/* <Link to='/share/'>Preview</Link> */}
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Linkhub ©2022 Copyright</Footer>

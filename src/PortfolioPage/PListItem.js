@@ -8,13 +8,14 @@ export default function PListItem(props) {
   const color = props.color
   const img = props.img
   const id = props.id
+  const lists = props.lists
 
   const navigate = useNavigate();
 
   const handleClick=()=>{
     console.log("color "+color)
     console.log("img "+img)
-    navigate('/Design',{state:{portfolioName:portfolioName, color:color,img:img,id:id}});
+    navigate('/Design',{state:{portfolioName:portfolioName, color:color,img:img,id:id,lists:lists}});
   }
 
   return (
