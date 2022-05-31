@@ -2,6 +2,8 @@ const express = require("express")
 const cors = require('cors');
 const mongo = require("mongodb").MongoClient
 const ObjectId = require('mongodb').ObjectId;
+const mongoose = require('mongoose');
+
 
 const app = express()
 app.use(cors());
@@ -30,6 +32,28 @@ mongo.connect(
         comment = db.collection("comment");
     }
 )
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://linkhub:linkhub@cluster0.gtura.mongodb.net/LinkHub?retryWrites=true&w=majority');
+}
+
+const portfolioSchema = new mongoose.Schema({
+    _id: ObjectId,
+    email:String,
+    portfolio: String,
+    datetime: String,
+    color: String,
+    img: String,
+    lists: [String]
+
+  });
+
+  const Mportfolio = mongoose.model('portfolio', portfolioSchema);
+
+
+
 
 //API lists
 
@@ -115,9 +139,14 @@ app.get("/GetComment", (req, res) => {
 
   app.post("/AddPortfolio", (req, res) => {
     
-    portfolio.insertOne(
+    const idd = new(ObjectId)
+    Mportfolio.create(
         {
+            _id:idd,
             email:req.body.Email,
+            color:'grey',
+            img:'https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png',
+            lists:["a","b"],
             portfolio: req.body.portfolioName,
             datetime: dateTime.create().format('Y-m-d')
         },
@@ -133,33 +162,34 @@ app.get("/GetComment", (req, res) => {
 })
 
 app.post("/GetPortfolio", (req, res) => {
-    portfolio.find(
+    Mportfolio.find(
         {
             email:req.body.Email
         }
-    ).toArray((err, items) => {
+    ,(err, items) => {
       if (err) {
         console.error(err)
         res.status(500).json({ err: err })
         return
       }
       res.status(200).json({ portfolio: items })
-    })
-  })
+    }
+  )
+})
+
 
   app.post("/PublishPortfolio", (req, res) => {
 
     console.log("publish "+req.body.id + "name " + req.body.name);
 
-    var idd = new ObjectId(req.body.id);
-
-    
-    portfolio.updateOne(
-        {
-            _id:idd,
-        },
+    Mportfolio.findByIdAndUpdate
+    (
+        
+            req.body.id,
+        
         {$set:{
             portfolio:req.body.name,
+            email:req.body.email,
             color:req.body.color,
             img:req.body.img,
             lists:req.body.lists
@@ -179,11 +209,10 @@ app.post("/GetPortfolio", (req, res) => {
 
 app.post('/GetShare', function (req, res) {
 
-    var idd = new ObjectId(req.body.id);
 
-    portfolio.findOne(
+    Mportfolio.findById(
         {
-            _id: idd,
+            _id: req.body.id,
         },
         (err, result) => {
             if (err) {

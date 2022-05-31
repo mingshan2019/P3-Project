@@ -77,6 +77,7 @@ export default function Design(props) {
     const res = await PublishPage(
       {
       id,
+      Email,
       name, 
       color,
       img,
@@ -98,6 +99,7 @@ export default function Design(props) {
       <Nav />
       <Content style={{ width: '100%', display: 'flex' }}>
         <div style={{ paddingLeft: '10%', paddingTop: '1.5%' }}>
+          <div>id: {id}</div>
           <Input addonBefore='Portfolio Name ' defaultValue={location.state.portfolioName} onChange={handleChange}></Input>
           <br />
           <br />
