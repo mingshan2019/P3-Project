@@ -21,7 +21,7 @@ export default function PhoneFrame(props) {
           <Avatar src="https://joeschmoe.io/api/v1/random" size={'large'}/>
      </div>
      <div style={{paddingRight:'5%'}}>
-      <ul>
+      <ul style ={{listStyle:'none'}}>
       {listItems}
        </ul>
        </div>

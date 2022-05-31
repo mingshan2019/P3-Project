@@ -38,7 +38,7 @@ export default function Design(props) {
   };
 
   const [link, setLink] = useState(0);
-  const [lists, setLists] = useState(["a", "b"]);
+  const [lists, setLists] = useState(['link 1','link 2']);
   const listItems = lists.map((item) =>
     <li key="{item}">
       <PhoneItem link={item} />
