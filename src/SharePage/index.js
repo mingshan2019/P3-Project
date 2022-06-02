@@ -50,20 +50,7 @@ export default function Share(props) {
     <Layout>
     <Content>
     <div style={{float:'left', padding:'5%'}}>
-            <a onClick={()=> navigate(-1)}><ArrowLeftOutlined/>Back</a>
-            <br/>
             <PhoneFrame color={color} img={img} lists={lists}/>
-            <RWebShare
-              data={{
-                text: "Share your Linkhub page to the public",
-                url: url,
-                title: "Share to",
-                sites:['facebook']
-              }}
-              onClick={() => console.log("shared successfully!")}
-            >
-              <Button  style={{ marginTop: '5%' }}>Share on Web</Button>
-            </RWebShare>
     </div>
     </Content>
     </Layout>

@@ -1,13 +1,13 @@
-import React, { useState,useEffect } from 'react'
-import { Layout, Button, Input, Space, Mentions } from 'antd'
+import React, { useState, useEffect } from 'react'
+import { Layout, Button, Input, Space, Mentions, Modal } from 'antd'
 import Nav from '../Nav'
 import PhoneItem from '../PhoneFrame/PhoneItem'
 import PhoneFrame from '../PhoneFrame'
 import Designer from './Designer'
 import { SketchPicker } from 'react-color'
-import { useLocation, useNavigate,Link } from 'react-router-dom'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { RWebShare } from 'react-web-share'
-
+import Share from '../SharePage'
 
 const { Content, Footer } = Layout
 
@@ -38,7 +38,7 @@ export default function Design(props) {
   };
 
   const [link, setLink] = useState(0);
-  const [lists, setLists] = useState(['link 1','link 2']);
+  const [lists, setLists] = useState(['link 1', 'link 2']);
   const listItems = lists.map((item) =>
     <li key="{item}">
       <PhoneItem link={item} />
@@ -46,9 +46,12 @@ export default function Design(props) {
   );
   const [color, setColor] = useState('grey');
   const [img, setImg] = useState(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`);
-  const [id,setId] = useState('');
+  const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [Email, setEmail] = useState(sessionStorage.getItem("email"));
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const url = 'http://localhost:3000/share/'+ id
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -78,30 +81,33 @@ export default function Design(props) {
   const handlePublish = async e => {
     const res = await PublishPage(
       {
-      id,
-      Email,
-      name, 
-      color,
-      img,
-      lists
-    });
+        id,
+        Email,
+        name,
+        color,
+        img,
+        lists
+      });
     if (res.token == "not found") alert("User not found");
   }
 
   const handlePreview = async e => {
-    const url = 'http://localhost:3000/share/'+ id
-    console.log("url is "+url)
-    window.location.replace(url)
-    }
+    // console.log("url is "+url)
+    // window.location.replace(url)
+    handlePublish()
+    setIsModalVisible(true)
+
+  }
 
   useEffect(() => {
     setName(location.state.portfolioName);
     setColor(location.state.color);
     setImg(location.state.img);
     setId(location.state.id);
-    setLists(location.state.lists); 
-    console.log("list === "+lists[1]);
-}, []);
+    setLists(location.state.lists);
+    console.log("list === " + lists[1]);
+  }, []);
+
 
 
   return (
@@ -154,6 +160,19 @@ export default function Design(props) {
           <Button style={{ marginLeft: '40%' }} onClick={handlePreview}>Preview Page</Button>
           {/* <Link to='/share/'>Preview</Link> */}
         </div>
+        <Modal style={{ height: '100%', width: '120%', display: 'flex'}} title="Preview Share Page" visible={isModalVisible} footer={<RWebShare
+          data={{
+            text: "Share your Linkhub page to the public",
+            title: "Share to",
+            url: url,
+            sites: ['facebook']
+          }}
+          onClick={() => console.log("shared successfully!")}
+        >
+          <Button style={{ marginTop: '5%' }}>Share on Web</Button>
+        </RWebShare>} onCancel={() => setIsModalVisible(false)} >
+          <PhoneFrame color={color} img={img} lists={lists} />
+        </Modal>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Linkhub ©2022 Copyright</Footer>
     </Layout>)
