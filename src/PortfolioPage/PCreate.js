@@ -42,7 +42,7 @@ export default function PCreate() {
       now
     });console.log("res"+res)
     const id = res.id
-    navigate('/Design',{state:{portfolioName:portfolioName, color:'grey',img:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`,id:id}});
+    navigate('/Design',{state:{portfolioName:portfolioName, color:'grey',img:`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`,id:id, lists:['link1','link2']}});
   };
 
   const handleCancel = () => {
@@ -61,7 +61,6 @@ export default function PCreate() {
         <br/>
         <br/>
         <button onClick={handleClick}><HiOutlineDocumentAdd size='80%'/></button>
-
         <Modal title="Create Portfolio" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}  >
         <Input placeholder="Enter your Portfolio Name" onChange={handleChange}/>
         </Modal>
