@@ -9,8 +9,8 @@ export default class PhoneItem extends Component {
 
   render() {
     return (
-      <div style={{paddingTop:'20px'}}>
-      <div style={{background:this.props.color,width:'220px',height:'35px',borderRadius:'5px',padding:'10px'}}>{this.props.link} </div>
+      <div style={{paddingTop:'10%'}}>
+      <a href={this.props.link} target="_blank" style={{background:this.props.color,borderRadius:'10%',padding:'2%'}}>{this.props.link} </a>
       </div>
     )
   }
