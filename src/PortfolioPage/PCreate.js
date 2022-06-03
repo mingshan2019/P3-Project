@@ -7,7 +7,7 @@ import {Modal,Input,Button} from 'antd'
 
 
 function AddPortfolio(req) {
-  return fetch('http://localhost:5000/AddPortfolio', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/AddPortfolio', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

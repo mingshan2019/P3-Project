@@ -18,7 +18,7 @@ const MOCK_DATA = {
 };
 
 function PublishPage(req) {
-  return fetch('http://localhost:5000/PublishPortfolio', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/PublishPortfolio', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export default function Design(props) {
   const [Email, setEmail] = useState(sessionStorage.getItem("email"));
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const url = 'http://localhost:3000/share/'+ id
+  const url = 'http://connecttree.link/share/'+ id
 
   const location = useLocation();
   const navigate = useNavigate();

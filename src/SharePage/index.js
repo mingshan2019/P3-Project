@@ -20,7 +20,7 @@ export default function Share(props) {
 
         const fetchData = async () => {
           try {
-            const response = await fetch( 'http://localhost:5000/GetShare', {
+            const response = await fetch( 'http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/GetShare', {
               method: 'POST',
               headers: {
                'Content-Type': 'application/json'

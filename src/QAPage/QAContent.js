@@ -8,7 +8,7 @@ const text = `
 `;
 
 function AddComment(req) {
-  return fetch('http://localhost:5000/AddComment', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/AddComment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ function AddComment(req) {
 
 const GetC = async () => {
   try {
-    const response = await fetch('http://localhost:5000/GetComment');
+    const response = await fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/GetComment');
     const json = await response.json();
     console.log(json);
   } catch (error) {
@@ -30,7 +30,7 @@ const GetC = async () => {
 };
 
 function GetComment(){
-  return fetch('http://localhost:5000/GetComment', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/GetComment', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ const QAContent = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch( 'http://localhost:5000/GetComment');
+        const response = await fetch( 'http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/GetComment');
         const res = await response.json();
         console.log(res);
         const c = res.comment.map(function(item){
