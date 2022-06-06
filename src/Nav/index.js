@@ -15,13 +15,13 @@ export default function Nav() {
           <Menu.Item style={{marginLeft:'40%'}}>
           <Link to='/Portfolio'>Portfolio</Link>
           </Menu.Item>
-          <Menu.Item style={{marginLeft:'8%'}}>
+          <Menu.Item style={{marginLeft:'7%'}}>
           <Link to='/Blog'>Blog</Link>
           </Menu.Item>
-          <Menu.Item style={{marginLeft:'8%'}}>
+          <Menu.Item style={{marginLeft:'7%'}}>
           <Link to='/QA' >Help</Link>
           </Menu.Item >
-          <Menu.Item style={{marginLeft:'8%'}}>
+          <Menu.Item style={{marginLeft:'7%'}}>
           <Link to='/About' >About</Link>
           </Menu.Item >
           <Ava/>
