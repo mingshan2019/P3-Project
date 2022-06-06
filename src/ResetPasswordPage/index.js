@@ -4,8 +4,8 @@ import { Link,useNavigate,useParams } from 'react-router-dom'
 import { Form, Input, Button,Card } from 'antd'
 
 
-function SignUpUser(req) {
-  return fetch('/SignUp', {
+function ResetPW(req) {
+  return fetch('/resetpw', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -17,10 +17,11 @@ function SignUpUser(req) {
 }
 
 
-export default function SignUpModal() {
+export default function ResetPassword() {
 
   const [password, setPassword] = useState();
   const [repassword, setRePassword] = useState();
+  const {id} = useParams();
 
   const navigate = useNavigate();
 
@@ -44,11 +45,12 @@ export default function SignUpModal() {
     else if (!password.match(/[A-Za-z]/)) alert("Password must contain character")
 
     else {
-      const res = await SignUpUser({
+      const res = await ResetPW({
+        id,
         password
       });
-      if (!res.error) alert("Sign Up Successful");
-      navigate('/', { replace: true })
+      if (!res.error) alert("Reset Password Successful");
+      navigate('/Login', { replace: true })
     }
   }
 

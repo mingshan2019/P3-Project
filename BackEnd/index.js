@@ -52,8 +52,14 @@ const portfolioSchema = new mongoose.Schema({
 
   });
 
-  const Mportfolio = mongoose.model('portfolio', portfolioSchema);
+  const userSchema = new mongoose.Schema({
+    _id: ObjectId,
+    email:String,
+    password: String
+  });
 
+  const Mportfolio = mongoose.model('portfolio', portfolioSchema);
+  const Muser = mongoose.model('user', userSchema);
 
 
 
@@ -146,6 +152,30 @@ app.post('/forgetpw', async function (req, res) {
       res.status(200).json({'ok':'true'});
 
 
+})
+
+
+app.post("/resetpw", (req, res) => {
+
+    Muser.findByIdAndUpdate
+    (
+        
+            req.body.id,
+        
+        {$set:{
+            password:req.body.password,
+        }
+        },{upsert: false},
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            res.status(200).json({ id: req.body._id })
+
+        }
+    )
 })
 
 
