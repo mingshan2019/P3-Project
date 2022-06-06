@@ -94,9 +94,9 @@ export default function LoginModal() {
         <Form.Item name="remember" valuePropName="checked" noStyle>
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
-        <a className="login-form-forgot" href="">
+        <Link to='/ForgotPassword'>
         &nbsp;&nbsp;Forgot password
-        </a>
+        </Link>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
@@ -108,6 +108,6 @@ export default function LoginModal() {
       </Form.Item>
     </Form>
 
-,</Card>
+    </Card>
   )
 }

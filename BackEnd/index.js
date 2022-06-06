@@ -3,6 +3,8 @@ const cors = require('cors');
 const mongo = require("mongodb").MongoClient
 const ObjectId = require('mongodb').ObjectId;
 const mongoose = require('mongoose');
+const nodemailer = require("nodemailer");
+
 
 
 const app = express()
@@ -103,6 +105,43 @@ app.post('/login', function (req, res) {
         }
     )
 })
+
+
+app.get('/forgetpw', function (req, res) {
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        // host: "smtp.gmail.com",
+        // port: 465,
+        // secure: true, // true for 465, false for other ports
+        service: 'gmail',
+        auth: {
+          user: 'linkhubtree@gmail.com', 
+          pass: 'fkrsztmpopufbdld', // use App passwords, not gmail passwords: https://stackoverflow.com/questions/45478293/username-and-password-not-accepted-when-using-nodemailer
+        },
+      });
+      
+    
+      // send mail with defined transport object
+      let info =  transporter.sendMail({
+        from: 'linkhubtree@gmail.com', // sender address
+        to: "katherine.linw@gmail.com", // list of receivers
+        subject: "Linkhub Forget Password", // Subject line
+        text: "Click to reset pw", // plain text body
+        html: "<b>Reset PW</b>", // html body
+      });
+    
+      console.log("Message sent: %s", info.messageId);
+      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+    
+      // Preview only available when sending through an Ethereal account
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+      // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+      res.status(200).json({'ok':'true'});
+
+
+})
+
 
 app.post("/AddComment", (req, res) => {
     
@@ -209,7 +248,6 @@ app.post("/GetPortfolio", (req, res) => {
 
 app.post('/GetShare', function (req, res) {
 
-
     Mportfolio.findById(
         {
             _id: req.body.id,
@@ -227,3 +265,6 @@ app.post('/GetShare', function (req, res) {
         }
     )
 })
+
+
+

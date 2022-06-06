@@ -10,7 +10,7 @@ export default function Intro() {
         <video src={Video} autoplay='true' autoPlay loop muted width='100%'>
         </video>
         <div style={{left:'45%',top:'60%',position:'absolute',transform: 'translateX(-50%)'}}>
-        <Link to='/SignUp'>Get Started Tooday <ArrowRightOutlined /> </Link>
+        <Link to='/SignUp'>Get Started Today <ArrowRightOutlined /> </Link>
         </div>
         </div>
     )

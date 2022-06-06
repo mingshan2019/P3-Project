@@ -19,7 +19,10 @@ export default function Nav() {
           <Link to='/Blog'>Blog</Link>
           </Menu.Item>
           <Menu.Item style={{marginLeft:'8%'}}>
-          <Link to='/QA' >Q&A</Link>
+          <Link to='/QA' >Help</Link>
+          </Menu.Item >
+          <Menu.Item style={{marginLeft:'8%'}}>
+          <Link to='/About' >About</Link>
           </Menu.Item >
           <Ava/>
           </Menu>
