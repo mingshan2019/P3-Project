@@ -14,6 +14,7 @@ import About from './AboutPage'
 import SignUp from './SignUpPage';
 import Login from './LoginPage'
 import ForgotPassword from './ForgotPasswordPage'
+import ResetPassword from './ResetPasswordPage';
 import NotFound from './NotFoundPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,6 +34,7 @@ root.render(
       <Route path="/SignUp" element={<SignUp/>} />
       <Route path="/Login" element={<Login/>} />
       <Route path="/ForgotPassword" element={<ForgotPassword/>} />
+      <Route path="/ResetPassword/:id" element={<ResetPassword/>} />
       <Route path="/*" element={<NotFound/>} />
 
   </Routes>

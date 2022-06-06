@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import {useNavigate,Link} from 'react-router-dom'
 import {Form,Input,Button,Checkbox,Card} from 'antd'
 import {LockOutlined,UserOutlined} from '@ant-design/icons'
+import validator from 'validator'
+
 
 function loginUser(req) {
-  return fetch('/forgetpw', {
+  return fetch('http://localhost:5000/forgetpw', {
     method: 'POST',
     headers: {
      'Content-Type': 'application/json'
@@ -33,14 +35,15 @@ export default function ForgotPassword() {
   }
 
   const handleSubmit = async e => {
-    console.log("email: "+email)
+    if (!validator.isEmail(email)) alert("Please type a valid email")
+    else{
     const res = await loginUser({
       email,
     });  
       alert("Email sent, please check");
       console.log("token is "+res.token);
       navigate('/Login', { replace: true })
-    
+  }
   }
 
   return (

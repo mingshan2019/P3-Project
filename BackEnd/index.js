@@ -107,10 +107,10 @@ app.post('/login', function (req, res) {
 })
 
 
-app.get('/forgetpw', function (req, res) {
+app.post('/forgetpw', async function (req, res) {
 
     // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
+    let transporter = await nodemailer.createTransport({
         // host: "smtp.gmail.com",
         // port: 465,
         // secure: true, // true for 465, false for other ports
@@ -120,15 +120,21 @@ app.get('/forgetpw', function (req, res) {
           pass: 'fkrsztmpopufbdld', // use App passwords, not gmail passwords: https://stackoverflow.com/questions/45478293/username-and-password-not-accepted-when-using-nodemailer
         },
       });
-      
-    
+          
       // send mail with defined transport object
-      let info =  transporter.sendMail({
+      let info =  await transporter.sendMail({
         from: 'linkhubtree@gmail.com', // sender address
-        to: "katherine.linw@gmail.com", // list of receivers
+        to: req.body.email, // list of receivers
         subject: "Linkhub Forget Password", // Subject line
         text: "Click to reset pw", // plain text body
-        html: "<b>Reset PW</b>", // html body
+        html: `<!doctype html>
+        <html ⚡4email>
+          <head>
+          </head>
+          <body> 
+           <b> Click <a href = "http://localhost:3000/resetpassword/d"> Here </a> to reset password</b>
+          </body>
+        </html>`
       });
     
       console.log("Message sent: %s", info.messageId);
