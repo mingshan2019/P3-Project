@@ -1,6 +1,6 @@
 import React from 'react'
 import {Avatar,Button, Menu} from 'antd'
-import {useNavigate} from "react-router-dom"
+import {useNavigate, Link} from "react-router-dom"
 
 
 export default function Ava() {
@@ -20,11 +20,13 @@ export default function Ava() {
     console.log('click');
   }
 
+  const url = '/Profile/'+ sessionStorage.getItem('email')
+
   if(sessionStorage.getItem("email"))
     return (
       <>
       <Menu.Item style={{marginLeft:'7%'}} disabled='true'>
-      <button style={{border:'none', background:'none'}} onClick={() => {navigate('/Login')}}>
+      <button style={{border:'none', background:'none'}} onClick={() => {navigate('/Profile')}}>
       <Avatar onClick={OpenProfile}>{sessionStorage.getItem("email").charAt(0)}</Avatar> 
       </button>
       </Menu.Item>

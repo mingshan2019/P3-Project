@@ -13,6 +13,7 @@ import QA from './QAPage'
 import About from './AboutPage'
 import SignUp from './SignUpPage';
 import Login from './LoginPage'
+import Profile from './ProfilePage'
 import ForgotPassword from './ForgotPasswordPage'
 import ResetPassword from './ResetPasswordPage';
 import NotFound from './NotFoundPage';
@@ -28,6 +29,7 @@ root.render(
       <Route path="/Portfolio" element={<Portfolio/>} />
       <Route path="/Design" element={<Design/>} />
       <Route path="/Share/:id" element={<Share/>} />
+      <Route path="/Profile" element={<Profile/>} />
       <Route path="/Blog" element={<Blog/>} />
       <Route path="/QA" element={<QA/>} />
       <Route path="/About" element={<About/>} />
