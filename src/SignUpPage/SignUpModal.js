@@ -63,7 +63,8 @@ export default function SignUpModal() {
   }
 
   return (
-    <Card style={{width:'40%',marginLeft:'30%',marginTop:'10%',padding:'3%'}}>
+    <div style={{height:'100%',paddingTop:'10%'}}>
+    <Card style={{width:'40%',marginLeft:'30%',padding:'3%'}}>
 
       <Form
         onFinish={handleSubmit}
@@ -108,6 +109,7 @@ export default function SignUpModal() {
 
       </Form>
       </Card>
+      </div>
   )
 
 }

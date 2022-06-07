@@ -12,7 +12,7 @@ export default function Share(props) {
     const { id } = useParams();
     const [color, setColor] = useState('grey');
     const [img, setImg] = useState(`url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png")`);
-    const [lists, setLists] = useState(["a", "b"]);
+    const [lists, setLists] = useState(["https://linktr.ee/"]);
 
     const navigate = useNavigate();
 

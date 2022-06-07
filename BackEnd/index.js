@@ -222,7 +222,7 @@ app.get("/GetComment", (req, res) => {
             portfolio: req.body.portfolioName,
             color:'grey',
             img:'https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png',
-            lists:["link1","link2"],
+            lists:["https://linktr.ee/"],
             datetime: dateTime.create().format('Y-m-d')
         },
         (err, result) => {

@@ -157,7 +157,10 @@ export default function Design(props) {
             ))}
           </Mentions>
           <Button style={{ marginTop: '60%' }} onClick={handlePublish}>Save Page</Button>
-          <Button style={{ marginLeft: '40%' }} onClick={handlePreview}>Preview Page</Button>
+          <br/>
+          <br/>
+          <br/>
+          <Button onClick={handlePreview}>Preview Page</Button>
           {/* <Link to='/share/'>Preview</Link> */}
         </div>
         <Modal style={{ height: '100%', width: '120%', display: 'flex'}} title="Preview Share Page" visible={isModalVisible} footer={<RWebShare
