@@ -10,7 +10,7 @@ export default class PhoneItem extends Component {
   render() {
     return (
       <div style={{paddingTop:'10%'}}>
-      <a href={this.props.link} target="_blank" style={{background:this.props.color,borderRadius:'10%',padding:'2%'}}>{this.props.link} </a>
+      <a href={this.props.link} target="_blank" overflowWrap= 'break-word' wordwrap='break-word' style={{background:this.props.color,borderRadius:'10%',padding:'2%',textOverflow:'hidden'}}>{this.props.link} </a>
       </div>
     )
   }

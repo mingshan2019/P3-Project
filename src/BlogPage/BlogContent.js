@@ -10,7 +10,7 @@ const data = Array.from({
   description:
     'Linkhub build up connection between your social medias.',
   content:
-    'We are aming at social influence and public relations by providing a creative design platorm. Once you build a personal profile here, you will have more opportunities to get attention.',
+    'We are aiming at social influence and public relations by providing a creative design platorm. Once you build a personal profile here, you will have more opportunities to get attention.',
 }));
 
 const IconText = ({ icon, text }) => (

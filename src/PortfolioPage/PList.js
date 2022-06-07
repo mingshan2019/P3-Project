@@ -30,8 +30,14 @@ import PListItem from './PListItem'
 
 }, []);
 
-
-  return (  
+if(!portfolio.length)
+return(
+    <div style={{width:'40%',padding:'10%'}}>
+      <h3>No portfolio yet, please create one </h3>
+    </div>
+)
+else{
+  return (      
   <div style={{width:'40%',paddingTop:'4%',paddingLeft:'10%'}}>
    { portfolio.map((item) =>
         
@@ -41,6 +47,6 @@ import PListItem from './PListItem'
      </div>
 
   )   
-}
+}}
 
 export default PList;

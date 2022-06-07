@@ -3,6 +3,8 @@ const cors = require('cors');
 const mongo = require("mongodb").MongoClient
 const ObjectId = require('mongodb').ObjectId;
 const mongoose = require('mongoose');
+const nodemailer = require("nodemailer");
+
 
 
 const app = express()
@@ -50,8 +52,14 @@ const portfolioSchema = new mongoose.Schema({
 
   });
 
-  const Mportfolio = mongoose.model('portfolio', portfolioSchema);
+  const userSchema = new mongoose.Schema({
+    _id: ObjectId,
+    email:String,
+    password: String
+  });
 
+  const Mportfolio = mongoose.model('portfolio', portfolioSchema);
+  const Muser = mongoose.model('user', userSchema);
 
 
 
@@ -76,7 +84,6 @@ app.post("/SignUp", (req, res) => {
 })
 
 app.post('/login', function (req, res) {
-
     users.findOne(
         {
             email: req.body.email,
@@ -103,6 +110,92 @@ app.post('/login', function (req, res) {
         }
     )
 })
+
+
+app.post('/forgetpw', async function (req, res) {
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter =  nodemailer.createTransport({
+        // host: "smtp.gmail.com",
+        // port: 465,
+        // secure: true, // true for 465, false for other ports
+        service: 'gmail',
+        auth: {
+          user: 'linkhubtree@gmail.com', 
+          pass: 'fkrsztmpopufbdld', // use App passwords, not gmail passwords: https://stackoverflow.com/questions/45478293/username-and-password-not-accepted-when-using-nodemailer
+        },
+      });
+
+      let id = new ObjectId();
+
+      users.findOne(
+          {
+              email: req.body.email,
+          },
+          (err, result) => {
+             id = result._id
+             console.log("result==="+ result._id)
+             let resetURL = "http://localhost:3000/resetpassword/"+ id;
+
+             console.log("resetURL= "+ resetURL)
+                 
+             // send mail with defined transport object
+             let info =  transporter.sendMail({
+               from: 'linkhubtree@gmail.com', // sender address
+               to: req.body.email, // list of receivers
+               subject: "Linkhub Forget Password", // Subject line
+               text: "Click to reset pw", // plain text body
+               html: `<!doctype html>
+               <html ⚡4email>
+                 <head>
+                 </head>
+                 <body> 
+                  <b> Click <a href = ${resetURL}> Here </a> to reset password</b>
+                 </body>
+               </html>`
+             });
+           
+             console.log("Message sent: %s", info.messageId);
+             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+           
+             // Preview only available when sending through an Ethereal account
+             console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+             res.status(200).json({'ok':'true'});
+          }
+      )
+
+
+
+
+
+
+})
+
+
+app.post("/resetpw", (req, res) => {
+
+    Muser.findByIdAndUpdate
+    (
+        
+            req.body.id,
+        
+        {$set:{
+            password:req.body.password,
+        }
+        },{upsert: false},
+        (err, result) => {
+            if (err) {
+                console.error("err: "+err)
+                res.status(500).json({ err: err })
+                return
+            }
+            res.status(200).json({ id: req.body._id })
+
+        }
+    )
+})
+
 
 app.post("/AddComment", (req, res) => {
     
@@ -147,7 +240,7 @@ app.get("/GetComment", (req, res) => {
             portfolio: req.body.portfolioName,
             color:'grey',
             img:'https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/1.png',
-            lists:["link1","link2"],
+            lists:["https://linktr.ee/"],
             datetime: dateTime.create().format('Y-m-d')
         },
         (err, result) => {
@@ -209,7 +302,6 @@ app.post("/GetPortfolio", (req, res) => {
 
 app.post('/GetShare', function (req, res) {
 
-
     Mportfolio.findById(
         {
             _id: req.body.id,
@@ -227,3 +319,6 @@ app.post('/GetShare', function (req, res) {
         }
     )
 })
+
+
+

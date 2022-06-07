@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Layout, Button, Input, Space, Mentions, Modal } from 'antd'
+import { Layout, Button, Input, Space, Mentions, Modal,Row,Col } from 'antd'
 import Nav from '../Nav'
 import PhoneItem from '../PhoneFrame/PhoneItem'
 import PhoneFrame from '../PhoneFrame'
@@ -122,14 +122,19 @@ export default function Design(props) {
           <SketchPicker onChange={({ hex }) => { setColor(hex) }} />
           <br />
           <br />
-          <div>
+          <Row style={{width:'150%'}}>
+          <Col span={12}>
             <Input
               onChange={event => setLink(event.target.value)}
             />
+            </Col>
+            <Col span={12}>
             <Button
               onClick={handleClick}
             >add link</Button>
-          </div>
+            </Col>
+
+          </Row>
           <br />
           <h3>click the image to change</h3>
           <button style={{ width: '30%', height: '18%', backgroundImage: `url("https://jrlinkhub.s3.ap-southeast-2.amazonaws.com/2_tn.jpg")` }} onClick={handleClick2}></button>
@@ -157,7 +162,10 @@ export default function Design(props) {
             ))}
           </Mentions>
           <Button style={{ marginTop: '60%' }} onClick={handlePublish}>Save Page</Button>
-          <Button style={{ marginLeft: '40%' }} onClick={handlePreview}>Preview Page</Button>
+          <br/>
+          <br/>
+          <br/>
+          <Button onClick={handlePreview}>Preview Page</Button>
           {/* <Link to='/share/'>Preview</Link> */}
         </div>
         <Modal style={{ height: '100%', width: '120%', display: 'flex'}} title="Preview Share Page" visible={isModalVisible} footer={<RWebShare

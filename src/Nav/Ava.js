@@ -16,16 +16,26 @@ export default function Ava() {
     console.log('open profile');
   };
 
+  const handleClick = () => {
+    console.log('click');
+  }
+
   if(sessionStorage.getItem("email"))
     return (
-      <Menu.Item style={{marginLeft:'10%'}} disabled= 'true'>
+      <>
+      <Menu.Item style={{marginLeft:'7%'}} disabled='true'>
+      <button style={{border:'none', background:'none'}} onClick={() => {navigate('/Login')}}>
       <Avatar onClick={OpenProfile}>{sessionStorage.getItem("email").charAt(0)}</Avatar> 
-      <Button style={{marginLeft:'40%'}} onClick={() => {localStorage.clear(); sessionStorage.clear();
+      </button>
+      </Menu.Item>
+      <Menu.Item style={{marginLeft:'2%'}} disabled='true'>
+      <Button onClick={() => {localStorage.clear(); sessionStorage.clear();
           window.location.reload(false);}}>Log Off</Button>
      </Menu.Item>
+     </>
  )
  else return(
-      <Menu.Item  disabled= 'true' style={{marginLeft:'8%'}}>
+      <Menu.Item  disabled= 'true' style={{marginLeft:'7%'}}>
       <Button onClick={NavLogin}>Login</Button>
      </Menu.Item>
  )
