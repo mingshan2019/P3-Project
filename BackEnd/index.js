@@ -84,7 +84,6 @@ app.post("/SignUp", (req, res) => {
 })
 
 app.post('/login', function (req, res) {
-
     users.findOne(
         {
             email: req.body.email,
@@ -116,7 +115,7 @@ app.post('/login', function (req, res) {
 app.post('/forgetpw', async function (req, res) {
 
     // create reusable transporter object using the default SMTP transport
-    let transporter = await nodemailer.createTransport({
+    let transporter =  nodemailer.createTransport({
         // host: "smtp.gmail.com",
         // port: 465,
         // secure: true, // true for 465, false for other ports
@@ -126,30 +125,49 @@ app.post('/forgetpw', async function (req, res) {
           pass: 'fkrsztmpopufbdld', // use App passwords, not gmail passwords: https://stackoverflow.com/questions/45478293/username-and-password-not-accepted-when-using-nodemailer
         },
       });
-          
-      // send mail with defined transport object
-      let info =  await transporter.sendMail({
-        from: 'linkhubtree@gmail.com', // sender address
-        to: req.body.email, // list of receivers
-        subject: "Linkhub Forget Password", // Subject line
-        text: "Click to reset pw", // plain text body
-        html: `<!doctype html>
-        <html ⚡4email>
-          <head>
-          </head>
-          <body> 
-           <b> Click <a href = "http://localhost:3000/resetpassword/d"> Here </a> to reset password</b>
-          </body>
-        </html>`
-      });
-    
-      console.log("Message sent: %s", info.messageId);
-      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    
-      // Preview only available when sending through an Ethereal account
-      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-      // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-      res.status(200).json({'ok':'true'});
+
+      let id = new ObjectId();
+
+      users.findOne(
+          {
+              email: req.body.email,
+          },
+          (err, result) => {
+             id = result._id
+             console.log("result==="+ result._id)
+             let resetURL = "http://localhost:3000/resetpassword/"+ id;
+
+             console.log("resetURL= "+ resetURL)
+                 
+             // send mail with defined transport object
+             let info =  transporter.sendMail({
+               from: 'linkhubtree@gmail.com', // sender address
+               to: req.body.email, // list of receivers
+               subject: "Linkhub Forget Password", // Subject line
+               text: "Click to reset pw", // plain text body
+               html: `<!doctype html>
+               <html ⚡4email>
+                 <head>
+                 </head>
+                 <body> 
+                  <b> Click <a href = ${resetURL}> Here </a> to reset password</b>
+                 </body>
+               </html>`
+             });
+           
+             console.log("Message sent: %s", info.messageId);
+             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+           
+             // Preview only available when sending through an Ethereal account
+             console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+             res.status(200).json({'ok':'true'});
+          }
+      )
+
+
+
+
 
 
 })
