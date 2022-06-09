@@ -1,9 +1,8 @@
 import { useRef } from "react";
 import S3 from "react-aws-s3";
-import {accessKeyId,secretAccessKey} from '../secrets'
 
-//const accessKeyId = process.env.accessKeyId;
-//const secretAccessKey = process.env.secretAccessKey;
+const accessKeyId = process.env.accessKeyId;
+const secretAccessKey = process.env.secretAccessKey;
 
 window.Buffer = window.Buffer || require("buffer").Buffer;
 

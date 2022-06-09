@@ -12,7 +12,7 @@ export default function Profile() {
     <div style={{padding:'5%'}}>
         <Avatar></Avatar>
         <Upload></Upload>
-        <UploadS3/>
+        
         Email: {sessionStorage.getItem("email")}
     </div>
     </div> 
