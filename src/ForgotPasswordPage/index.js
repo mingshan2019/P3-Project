@@ -6,7 +6,7 @@ import validator from 'validator'
 
 
 function loginUser(req) {
-  return fetch('http://localhost:5000/forgetpw', {
+  return fetch('http://ec2-54-206-113-177.ap-southeast-2.compute.amazonaws.com:5000/forgetpw', {
     method: 'POST',
     headers: {
      'Content-Type': 'application/json'

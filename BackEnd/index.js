@@ -135,7 +135,7 @@ app.post('/forgetpw', async function (req, res) {
           (err, result) => {
              id = result._id
              console.log("result==="+ result._id)
-             let resetURL = "http://localhost:3000/resetpassword/"+ id;
+             let resetURL = "http://connecttree.link/resetpassword/"+ id;
 
              console.log("resetURL= "+ resetURL)
                  
