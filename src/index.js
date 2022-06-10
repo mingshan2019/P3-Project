@@ -11,6 +11,7 @@ import Share from './SharePage';
 import Blog from './BlogPage'
 import QA from './QAPage'
 import About from './AboutPage'
+import Control from './ControlPage';
 import SignUp from './SignUpPage';
 import Login from './LoginPage'
 import Profile from './ProfilePage'
@@ -33,6 +34,7 @@ root.render(
       <Route path="/Blog" element={<Blog/>} />
       <Route path="/QA" element={<QA/>} />
       <Route path="/About" element={<About/>} />
+      <Route path="/Control" element={<Control/>} />
       <Route path="/SignUp" element={<SignUp/>} />
       <Route path="/Login" element={<Login/>} />
       <Route path="/ForgotPassword" element={<ForgotPassword/>} />
