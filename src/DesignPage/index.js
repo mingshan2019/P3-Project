@@ -114,13 +114,23 @@ export default function Design(props) {
     <Layout>
       <Nav />
       <Content style={{ width: '100%', display: 'flex' }}>
-        <div style={{ paddingLeft: '10%', paddingTop: '1.5%' }}>
+        <div style={{ paddingLeft: '10%', paddingTop: '1.5%' ,marginBottom:'6%'}}>
           <div>id: {id}</div>
           <Input addonBefore='Portfolio Name ' defaultValue={location.state.portfolioName} onChange={handleChange}></Input>
           <br />
           <br />
           <SketchPicker onChange={({ hex }) => { setColor(hex) }} />
           <br />
+          <Row style={{width:'150%'}}>
+          <Col span={12}>
+            <Input
+              onChange={event => setLink(event.target.value)}
+            />
+            </Col>
+            <Col span={12}>
+           
+            </Col>
+          </Row>
           <br />
           <Row style={{width:'150%'}}>
           <Col span={12}>
@@ -133,7 +143,6 @@ export default function Design(props) {
               onClick={handleClick}
             >add link</Button>
             </Col>
-
           </Row>
           <br />
           <h3>click the image to change</h3>

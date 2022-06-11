@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import LinkComponent from "./LinkComponent";
 import {Button} from 'antd'
+import {DeleteOutlined} from '@ant-design/icons'
+
 
 // fake data generator
 const getItems = count =>
