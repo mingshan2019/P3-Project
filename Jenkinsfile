@@ -1,11 +1,6 @@
 pipeline {
 
     agent any
-    environment {
-        aws_credential = AWS_CREDNETIAL_ID
-
-
-    }
 
     stages {
 
@@ -31,7 +26,7 @@ pipeline {
 
         stage('Upload') {
             steps {
-                withAWS(region:'ap-southeast-2', credentials:"${aws_credential}") {
+                withAWS(credentials: 'AWS_CREDNETIAL_ID', region: 'ap-southeast-2') {
                 s3Upload()
                 s3Upload(file:'build', bucket:'arn:aws:s3:::www.link-hub.link', path:'s3://www.link-hub.link/static/')
                 }
