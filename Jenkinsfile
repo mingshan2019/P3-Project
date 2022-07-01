@@ -28,7 +28,7 @@ pipeline {
             steps {
                 withAWS(credentials: 'AWS_CREDNETIAL_ID', region: 'ap-southeast-2') {
                 s3Upload()
-                s3Upload(file:'build', bucket:'arn:aws:s3:::www.link-hub.link', path:'s3://www.link-hub.link/static/')
+                s3Upload(file:'build', bucket:'www.link-hub.link', path:'static/')
                 }
                 script {
                     echo 'Deploying the application ...'
