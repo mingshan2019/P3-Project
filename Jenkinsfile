@@ -13,8 +13,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application ...'
-                //sh 'yarn'
-                //sh 'yarn build'
+                sh 'yarn'
+                sh 'yarn build'
             }
         }
 
